@@ -1,0 +1,37 @@
+
+===============================================================================
+     LAPORAN TEMUAN NLP KOMENTAR YOUTUBE BERITA REGIONAL (RISET FISIP)
+===============================================================================
+Total Data Komentar Wacana Publik Dianalisis : 884 Baris Komentar
+
+1. DISTRIBUSI SENTIMEN KONTEKSTUAL TERHADAP DIPLOMASI RI:
+   - Negatif (Kritis terhadap Diplomasi RI) : 368 komentar (41.63%)
+   - Positif (Mendukung Pembangunan/NKRI)   : 82 komentar (9.28%)
+   - Netral (Faktual/Diskusi Umum)          : 434 komentar (49.1%)
+
+2. PEMETAAN NARASI DOMINAN (ENTMAN FRAMING THEORY):
+   - Diplomasi & Wacana Umum: 483 komentar (54.64%)
+   - HAM & Pelanggaran Kemanusiaan: 226 komentar (25.57%)
+   - Kedaulatan & Penentuan Nasib Sendiri: 91 komentar (10.29%)
+   - Pembangunan & Stabilitas Keamanan: 50 komentar (5.66%)
+   - Identitas Melanesia & Solidaritas Pasifik: 34 komentar (3.85%)
+
+3. SEBARAN PER BLOK GEOPOLITIK KAWASAN PENONTON:
+   - Mitra Global: 528 komentar (59.73%)
+   - Blok ASEAN: 316 komentar (35.75%)
+   - Blok Pasifik & Melanesia: 40 komentar (4.52%)
+
+4. SEBARAN KOMENTAR PER KANAL MEDIA BERITA REGIONAL:
+   - Al Jazeera English: 528 komentar (59.73%)
+   - Astro AWANI: 160 komentar (18.1%)
+   - CNA (Channel NewsAsia): 141 komentar (15.95%)
+   - ABC News In-depth: 38 komentar (4.3%)
+   - Free Malaysia Today: 15 komentar (1.7%)
+   - RNZ Pacific: 2 komentar (0.23%)
+
+===============================================================================
+KESIMPULAN METODOLOGIS:
+Data komentar YouTube membuktikan adanya polarisasi diskursus yang sangat nyata
+antara tuntutan penentuan nasib sendiri / HAM di kawasan Pasifik melawan narasi
+kedaulatan dan pembangunan di kalangan penonton pro-pemerintah.
+===============================================================================

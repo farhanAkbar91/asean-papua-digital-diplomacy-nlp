@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caching & checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Environment & Credentials
+.env
+*.env
+*.key
+*.token
+credentials.json
+cookies.json
+
+# Development & OS junk
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Workspace temporary / junk directories
+asean-sampah/
+data-sampah/
+.gemini/
+.idea/
+.vscode/

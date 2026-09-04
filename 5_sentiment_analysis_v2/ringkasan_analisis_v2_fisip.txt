@@ -1,0 +1,27 @@
+
+===============================================================================
+       LAPORAN TEMUAN NLP V2 (ITERASI 2 - OPSI 1 RIGOROUS GEOCLUSTERING)
+===============================================================================
+Total Data Postingan Diindeks (Bersih dari bot/spam): 13 Tuitan
+
+1. DISTRIBUSI SENTIMEN KONTEKSTUAL V2:
+   - Negatif (Kritis terhadap Diplomasi RI) : 10 tuitan (76.92%)
+   - Positif (Mendukung Pembangunan/RI)   : 2 tuitan (15.38%)
+   - Netral (Informasi Umum/Pariwisata)   : 1 tuitan (7.69%)
+
+2. PEMETAAN NARASI DOMINAN (ENTMAN FRAMING V2):
+   - HAM & UN Visit: 9 tuitan (69.23%)
+   - Identitas Melanesia & Pasifik: 2 tuitan (15.38%)
+   - Pembangunan & Stabilitas: 2 tuitan (15.38%)
+
+3. SEBARAN PER BLOK GEOPOLITIK V2 (OPSI 1 TANPA BIAS IMPUTASI):
+   - Mitra Internasional & Global: 11 tuitan (84.62%)
+   - Blok Pasifik & Melanesia: 1 tuitan (7.69%)
+   - Wacana Regional Non-Spesifik: 1 tuitan (7.69%)
+
+4. VALITAS METODOLOGIS OPSI 1:
+   - Tuitan tanpa metadata lokasi profil maupun rujukan kawasan eksplisit 
+     dikategorikan sebagai 'Wacana Regional Non-Spesifik'.
+   - Mengeliminasi bias geolokasi (geolocation imputation bias) dan memastikan
+     klasifikasi Blok ASEAN, Pasifik, dan Global memiliki presisi tinggi.
+===============================================================================

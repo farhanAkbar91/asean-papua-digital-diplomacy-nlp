@@ -1,0 +1,24 @@
+
+===============================================================================
+           LAPORAN RINGKASAN EKSEKUTIF TEMUAN NLP (UNTUK TIM FISIP)
+===============================================================================
+Total Data Postingan Diindeks: 411 Tuitan
+
+1. DISTRIBUSI SENTIMEN WACANA DIGITALS:
+   - Positif : 62 tuitan (15.09%)
+   - Netral  : 297 tuitan (72.26%)
+   - Negatif : 52 tuitan (12.65%)
+
+2. PEMETAAN NARASI DOMINAN (ENTMAN FRAMING):
+   - HAM & UN Visit: 182 tuitan (44.28%)
+   - Identitas Melanesia & Pasifik: 137 tuitan (33.33%)
+   - Pembangunan & Stabilitas: 51 tuitan (12.41%)
+   - Diplomasi & Wacana Umum: 28 tuitan (6.81%)
+   - Kedaulatan & Autonomi: 13 tuitan (3.16%)
+
+3. REKOMENDASI INTERPRETASI DIPLOMASI PUBLIK & TEORI:
+   - Wacana bersentimen Negatif mayoritas didorong oleh isu HAM, tuntutan akses 
+     Komisioner PBB, serta seruan solidaritas Pasifik (MSG).
+   - Narasi 'Identitas Melanesia & Pasifik' memegang peranan kunci dalam 
+     mengkonstruksi persepsi publik attentive luar negeri terhadap klaim diplomasi Indonesia.
+===============================================================================

@@ -1,0 +1,32 @@
+
+===============================================================================
+           LAPORAN RINGKASAN EKSEKUTIF TEMUAN NLP (REVISED UNTUK TIM FISIP)
+===============================================================================
+Total Data Postingan Diindeks (Bersih tanpa bot/spam): 375 Tuitan
+
+1. DISTRIBUSI SENTIMEN WACANA DIPLOMASI DIGITAL:
+   - Negatif (Kritis terhadap Diplomasi RI) : 111 tuitan (29.6%)
+   - Positif (Mendukung Pembangunan/RI)   : 61 tuitan (16.27%)
+   - Netral (Wacana Umum/Pariwisata)       : 203 tuitan (54.13%)
+
+2. PEMETAAN NARASI DOMINAN (ENTMAN FRAMING):
+   - HAM & UN Visit: 176 tuitan (46.93%)
+   - Identitas Melanesia & Pasifik: 137 tuitan (36.53%)
+   - Diplomasi & Wacana Umum: 25 tuitan (6.67%)
+   - Pembangunan & Stabilitas: 20 tuitan (5.33%)
+   - Kedaulatan & Autonomi: 17 tuitan (4.53%)
+
+3. SEBARAN WILAYAH/NEGARA TERDETEKSI:
+   - ASEAN / Regional Non-ID: 298 tuitan (79.47%)
+   - Pasifik & Mitra Regional: 70 tuitan (18.67%)
+   - Filipina: 2 tuitan (0.53%)
+   - Thailand: 2 tuitan (0.53%)
+   - Singapura: 2 tuitan (0.53%)
+   - Malaysia: 1 tuitan (0.27%)
+
+4. REKOMENDASI TEMUAN TEORITIS UNTUK DRAF SKRIPSI FISIP:
+   - Wacana bersentimen Kritis mendominasi wacana luar negeri (khususnya 
+     isu HAM & dorongan kunjungan PBB).
+   - Narasi 'Identitas Melanesia & Pasifik' terbukti menjadi kerangka (*framing*) 
+     utama yang digunakan aktor regional untuk menekan posisi diplomasi Indonesia.
+===============================================================================

@@ -1,0 +1,30 @@
+
+===============================================================================
+           LAPORAN TEMUAN NLP V2 (ITERASI 2 - PENAJAMAN KONTEKSTUAL)
+===============================================================================
+Total Data Postingan Diindeks (Bersih dari bot/spam): 375 Tuitan
+
+1. DISTRIBUSI SENTIMEN KONTEKSTUAL V2:
+   - Negatif (Kritis terhadap Diplomasi RI) : 138 tuitan (36.8%)
+   - Positif (Mendukung Pembangunan/RI)   : 50 tuitan (13.33%)
+   - Netral (Informasi Umum/Pariwisata)   : 187 tuitan (49.87%)
+
+2. PEMETAAN NARASI DOMINAN (ENTMAN FRAMING V2):
+   - HAM & UN Visit: 176 tuitan (46.93%)
+   - Identitas Melanesia & Pasifik: 137 tuitan (36.53%)
+   - Diplomasi & Wacana Umum: 25 tuitan (6.67%)
+   - Pembangunan & Stabilitas: 20 tuitan (5.33%)
+   - Kedaulatan & Autonomi: 17 tuitan (4.53%)
+
+3. SEBARAN PER BLOK GEOPOLITIK V2:
+   - Blok Pasifik & Melanesia: 192 tuitan (51.2%)
+   - Blok ASEAN (Non-ID): 94 tuitan (25.07%)
+   - Mitra Internasional & Global: 89 tuitan (23.73%)
+
+4. SIGNIFIKANSI PERKEMBANGAN HASIL (METODOLOGI SKRIPSI):
+   - Perbandingan dengan Iterasi 1: Model V2 berhasil mengklasifikasikan 
+     berita formal mengenai tuntutan HAM & kunjungan PBB yang tadinya 'Netral' 
+     menjadi sentimen Kritis (Negatif bagi diplomasi RI).
+   - Temuan menunjukkan bahwa wacana luar negeri (ASEAN & Pasifik) didominasi 
+     oleh sentimen Kritis terkait Hak Asasi Manusia dan Tuntutan Akses PBB.
+===============================================================================

@@ -1,0 +1,39 @@
+===============================================================================
+     LAPORAN TEMUAN NLP MEDIA BERITA ONLINE REGIONAL (RISET FISIP)
+===============================================================================
+Total Artikel Berita Dianalisis : 312 Artikel
+
+1. DISTRIBUSI SENTIMEN MEDIA REGIONAL TERHADAP DIPLOMASI RI:
+   - Negatif (Kritis terhadap Posisi/Diplomasi RI): 144 artikel (46.15%)
+   - Netral (Liputan Faktual/Berimbang)           : 136 artikel (43.59%)
+   - Positif (Mendukung Pembangunan/Kedaulatan RI): 32 artikel (10.26%)
+
+2. PEMETAAN NARASI DOMINAN (ENTMAN FRAMING THEORY):
+   - Pembangunan & Stabilitas Keamanan            : 133 artikel (42.63%)
+   - HAM & Pelanggaran Kemanusiaan                : 67 artikel (21.47%)
+   - Diplomasi & Hubungan Internasional           : 61 artikel (19.55%)
+   - Kedaulatan & Penentuan Nasib Sendiri         : 31 artikel (9.94%)
+   - Identitas Melanesia & Solidaritas Pasifik    : 20 artikel (6.41%)
+
+3. SEBARAN PER BLOK GEOPOLITIK MEDIA:
+   - Blok ASEAN                    : 151 artikel (48.4%)
+   - Blok Pasifik & Melanesia      : 111 artikel (35.58%)
+   - Mitra Global                  : 50 artikel (16.03%)
+
+4. SEBARAN PER KANAL MEDIA BERITA RESMI:
+   - ABC News Australia            : 50 artikel (16.03%)
+   - RNZ Pacific                   : 50 artikel (16.03%)
+   - Al Jazeera English            : 50 artikel (16.03%)
+   - CNA (Channel NewsAsia)        : 45 artikel (14.42%)
+   - Free Malaysia Today           : 43 artikel (13.78%)
+   - The Straits Times             : 31 artikel (9.94%)
+   - The Star                      : 31 artikel (9.94%)
+   - Asia Pacific Report           : 11 artikel (3.53%)
+   - Astro AWANI                   : 1 artikel (0.32%)
+===============================================================================
+KESIMPULAN METODOLOGIS UNTUK PUBLIKASI SCOPUS:
+Pemberitaan media institusional regional di Blok ASEAN (Singapura & Malaysia)
+menunjukkan porsi liputan faktual/berimbang yang tinggi, sementara media di
+kawasan Pasifik & Melanesia (RNZ Pacific, ABC) lebih dominan mengangkat framing
+HAM dan hak penentuan nasib sendiri dalam dinamika diplomasi MSG.
+===============================================================================
