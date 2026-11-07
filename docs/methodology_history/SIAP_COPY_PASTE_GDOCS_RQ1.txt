@@ -1,0 +1,150 @@
+REVISI INTEGRITAS 2026-11-07: Bagian 4 (TEKNIS ANALISIS DATA) dan Bagian 5 (METODE PER RQ) telah ditulis ulang agar hanya mendeskripsikan langkah yang benar-benar dijalankan; Bagian 6 (REFERENSI) diganti daftar terverifikasi. Jangan menimpa revisi ini dengan versi lama.
+
+================================================================================
+TEKS SIAP COPY-PASTE KE GOOGLE DOCS (DRAFT FIX PROYEK SCOPUS)
+KHUSUS BAGIAN RESEARCH QUESTION 1 (RQ1) - FARHAN AKBAR
+================================================================================
+Petunjuk:
+Teks di bawah ini sudah disesuaikan persis dengan struktur dan bab pada dokumen 
+"DRAFT FIX.pdf" di Google Docs. Anda cukup menyalin (copy) bagian yang diinginkan 
+lalu menempelkannya (paste) ke kolom atau bagian yang masih kosong di Google Docs.
+================================================================================
+
+
+/* =============================================================================
+   BAGIAN 1: PENGISIAN TABEL GAP RISET (HALAMAN 2 GOOGLE DOCS)
+   (Gantikan teks "mBOH GA EROH", "podo, mbOHHH GA ERO", dan "G ERO")
+============================================================================= */
+
+[Kolom "KITA" untuk Methodological Gap]:
+Mengatasi keterbatasan sampel kecil dan bias metode tunggal dengan menerapkan Triangulasi Multi-Platform Komputasional (Media Berita Resmi, Komentar YouTube, dan Platform X) pada korpus pilote N = 1.571 unit wacana (korpus final direncanakan N ≈ 3.000–5.000). Mengintegrasikan inferensi Deep Learning Transformer (Twitter-RoBERTa, khusus Bahasa Inggris) dengan klasifikasi tematik leksikon terpandu (adaptasi deduktif dari Entman, 1993) yang dilaporkan terpisah dari prediksi model. CATATAN INTEGRITAS (revisi 2026-11-07): validasi reliabilitas (anotasi manusia, Cohen's Kappa, Precision/Recall/F1) BELUM dilaksanakan dan tidak boleh dinyatakan telah teruji pada manuskrip apa pun sampai protokol validasi dijalankan.
+
+
+[Kolom "KITA" untuk Variable Gap]:
+Menjembatani kelemahan perlakuan framing yang terisolasi dengan mengoperasionalisasikan dua variabel komputasional terpadu: (1) Thematic Frame (5 dimensi: HAM, Identitas Melanesia, Kedaulatan, Pembangunan/Keamanan, dan Diplomasi Bilateral) dan (2) Target-Specific Diplomatic Stance terhadap kedaulatan RI. Variabel luaran komputasional ini kemudian disintesiskan secara sistematis sebagai variabel stimulus terukur untuk memodelkan persepsi publik (RQ2) dan efektivitas diplomasi luar negeri (RQ3).
+
+
+[Kolom "KITA" untuk Empirical Gap]:
+Menyediakan bukti empiris berbasis data korpus terstratifikasi mengenai fragmentasi wacana digital lintas empat poros geopolitik (Blok ASEAN, Pasifik/Melanesia, Anglosphere/Barat, dan Multilateral/PBB). Data empiris ini membuktikan kepatuhan pers ASEAN terhadap norma non-intervensi sekaligus menjadi stimulus empiris objektif dalam menguji penerimaan dan respon sikap attentive public di Malaysia dan Singapura (RQ2).
+
+
+
+/* =============================================================================
+   BAGIAN 2: PENGAYAAN / TANGGAPAN TEORI (HALAMAN 3–4 GOOGLE DOCS)
+   (Dapat ditempatkan di bawah sub-bab TEORI MIKRO: ENTMAN FRAMING THEORY)
+============================================================================= */
+
+OPERASIONALISASI ENTMAN FRAMING PADA RQ1: OPERATIONAL DISCURSIVE SYNTHESIS
+Dalam konteks operasionalisasi komputasional RQ1, Teori Framing Robert M. Entman (1993) diterapkan melalui pendekatan Sintesis Diskursif Operasional (Operational Discursive Synthesis) yang memadukan Thematic Frame dengan Target-Specific Diplomatic Stance (Mohammad et al., 2016). Pendekatan ini secara presisi menjawab 4 fungsi framing Entman:
+1. Define Problems (Mendefinisikan Masalah): Diidentifikasi melalui penonjolan isu utama (issue salience) ke dalam 5 kategori bingkai tematik: HAM, Identitas Melanesia, Kedaulatan, Pembangunan/Keamanan, atau Diplomasi Regional.
+2. Diagnose Causes (Mendiagnosis Penyebab): Diinferensikan melalui orientasi sikap teks terhadap entitas target ("Kedaulatan dan Diplomasi Indonesia di Papua"), apakah masalah diatribusikan kepada tindakan represif militer/pemerintah RI atau kepada aksi teror kelompok bersenjata (OPM).
+3. Make Moral Judgements (Evaluasi Moral): Ditentukan melalui polaritas stance diplomatik (apakah wacana mengevaluasi posisi kedaulatan RI secara kritis-oposisi, suportif-legitimatif, atau netral-faktual).
+4. Suggest Remedies (Menyarankan Solusi): Diturunkan dari interseksi Frame × Stance (misalnya: Frame HAM yang berorientasi kritis secara operasional mengarah pada desakan investigasi Komisioner HAM PBB, sedangkan Frame Pembangunan berorientasi suportif mengarah pada penguatan Otonomi Khusus).
+Setiap keputusan klasifikasi didukung oleh ekstraksi bukti leksikal (evidence span extraction) guna menjamin prinsip Explainable Artificial Intelligence (XAI) yang dapat diaudit secara ilmiah.
+
+
+
+/* =============================================================================
+   BAGIAN 3: SUMBER DATA (HALAMAN 4 GOOGLE DOCS)
+   (Gantikan judul kosong "SUMBER DATA")
+============================================================================= */
+
+SUMBER DATA
+Sumber data penelitian untuk RQ1 menggunakan pendekatan triangulasi multi-platform terpadu. Pada tahap awal (pilot corpus baseline), data yang telah berhasil dikumpulkan dan dianotasi berjumlah N = 1.571 unit wacana, dan saat ini sedang dalam proses ekspansi pengumpulan data terstratifikasi menuju target korpus akhir yang representatif sebesar N ≈ 3.000 hingga 5.000 unit data. Korpus triangulasi ini terdiri atas:
+1. Media Berita Resmi Daring (Baseline N = 312 artikel): Mewakili agenda setting institusional, kawat berita formal, dan pandangan elit diplomatik. Diambil dari portal berita arus utama Malaysia (The Star, Astro Awani, New Straits Times), Singapura (Channel NewsAsia, The Straits Times), Pasifik (RNZ Pacific, Fiji Times, Vanuatu Daily Post), dan Media Global (Reuters, ABC News, Al Jazeera).
+2. Komentar Berita YouTube (Baseline N = 884 komentar): Mewakili ruang publik dialektis (deliberative public sphere) berupa reaksi dan debat publik terbuka atas liputan investigasi isu Papua di kanal berita resmi. Diambil melalui YouTube Data API v3.
+3. Platform X / Twitter (Baseline N = 375 postingan): Mewakili aktivisme transnasional dan wacana jejaring digital (tagar kampanye, diaspora Pasifik, jurnalis independen, dan aktivis HAM).
+
+Korpus data dikelompokkan ke dalam empat poros geopolitik strategis: (1) Blok ASEAN (Malaysia dan Singapura); (2) Blok Pasifik & Melanesia (Vanuatu, Fiji, PNG, Kaledonia Baru); (3) Blok Barat / Anglosphere (Australia, Inggris, AS); dan (4) Blok Multilateral / Global (PBB dan kawat berita internasional). Korpus mencakup tiga bahasa: Bahasa Inggris (lingua franca diplomasi), Bahasa Melayu (wacana publik Malaysia), dan Bahasa Prancis (representasi kaukus Melanesia Kaledonia Baru/FLNKS).
+
+
+
+/* =============================================================================
+   BAGIAN 4: TEKNIS ANALISIS DATA (HALAMAN 4 GOOGLE DOCS)
+   (Gantikan judul kosong "TEKNIS ANALISIS DATA")
+============================================================================= */
+
+TEKNIS ANALISIS DATA
+(REVISI INTEGRITAS 2026-11-07 — teks ini kini mendeskripsikan implementasi yang benar-benar dijalankan; klaim metode yang belum dieksekusi telah dihapus. Detail teknis: METHODOLOGY_REPAIRED.md)
+Analisis data komputasional RQ1 dilaksanakan melalui pipeline sebagai berikut:
+1. Deteksi Bahasa & Penandaan Korpus: Setiap unit wacana diberi label bahasa — data X menggunakan metrik `lang` dari API (kode 'in' dinormalisasi menjadi 'id'/Indonesia), komentar YouTube dan artikel berita dideteksi otomatis (langdetect, seed deterministik). Korpus pilote faktual berkomposisi Bahasa Inggris dan Indonesia (TIDAK terdapat artikel berita Melayu/Prancis); unit non-Inggris ditandai eksplisit dan tidak disuapkan ke model sentimen monolingual-Inggris tanpa penanganan. Pipeline terjemahan (opus-mt id→en) disiapkan namun eksekusinya masih mengantre di lingkungan Colab.
+2. Inverted Pyramid Lead Processing: Untuk artikel berita panjang, inferensi sentimen difokuskan pada judul dan 250 kata pertama sesuai kaidah piramida terbalik (Pöttker, 2003).
+3. Inferensi Sentimen Transformer: Model pretrained cardiffnlp/twitter-roberta-base-sentiment-latest (Loureiro et al., 2022; arsitektur TweetEval dari Barbieri et al., 2020) menghasilkan label mentah 3 kelas (negatif/netral/positif) beserta skor probabilitasnya, dengan preprocessing sesuai model card (mention→'@user', URL→'http'). Label mentah model bersifat otoritatif.
+4. Lapisan Kalibrasi Leksikal (EXPERIMENTAL — dilaporkan terpisah): Sebuah lapisan aturan kata-kunci yang menguji hipotesis "civility bias" jurnalisme formal dijalankan SEBAGAI KOLOM TERPISAH (bukan menimpa label model). Bukti kata-kunci yang memicu setiap penyesuaian disimpan eksplisit. Lapisan ini TIDAK digunakan untuk temuan utama sampai tervalidasi manusia.
+5. Klasifikasi Tematik Leksikon Terpandu: Wacana dikelompokkan ke dalam 5 dimensi bingkai tematik domain-specific (adaptasi deduktif dari pendekatan Semetko & Valkenburg, 2000 — bukan taksonomi asli S&V) menggunakan pencocokan word-boundary; unit tanpa kecocokan leksikon dilaporkan jujur sebagai kategori "Other/No-Frame", bukan dipetakan ke bingkai tertentu. Kata-kunci bukti setiap klasifikasi disimpan.
+6. Status Validasi (WAJIB disampaikan di manuskrip): BELUM ada validasi gold-standard manusia; Cohen's Kappa, Precision, Recall, dan F1 BELUM dihitung dan tidak boleh dilaporkan sampai protokol anotasi ganda (2 anotator independen, N = 100–150) dijalankan.
+
+
+
+/* =============================================================================
+   BAGIAN 5: METODE PER RQ (HALAMAN 5 GOOGLE DOCS)
+   (Isikan pada nomor "1." di bawah judul "METODE PER RQ")
+============================================================================= */
+
+METODE PER RQ
+(REVISI INTEGRITAS 2026-11-07: hanya langkah yang benar-benar dieksekusi yang
+dinyatakan sebagai "dilaksanakan"; sisanya dinyatakan eksplisit sebagai rencana.)
+1. Research Question 1 (RQ1: Analisis Sentimen & Konstruksi Narasi Wacana Digital Internasional)
+   Metodologi komputasional untuk menjawab RQ1 dilaksanakan melalui lima tahap kerja:
+   a. Tahap 1 — DILAKSANAKAN (Akuisisi & Sanitasi Data): Pengumpulan data pilote lintas 3 platform (Berita: 312 artikel via Google News RSS + dekode URL; YouTube: 884 komentar via registry kanal berita terverifikasi; X: 375 tuitan via twikit) disertai filter spam/relevansi; pembersihan noise teks via Regular Expression.
+   b. Tahap 2 — DILAKSANAKAN (Penandaan Bahasa & Pra-pemrosesan): Deteksi/penandaan bahasa per unit (API `lang` untuk X; langdetect untuk YouTube/Berita); ekstraksi judul + lead paragraph (250 kata pertama) pada artikel pers untuk inferensi sentimen. Terjemahan NMT: DISIAPKAN, BELUM DIEKSEKUSI.
+   c. Tahap 3 — DILAKSANAKAN (Inferensi NLP): Inferensi Twitter-RoBERTa (monolingual Inggris) pada unit berbahasa Inggris menghasilkan label sentimen mentah + skor; lapisan kalibrasi leksikal dijalankan sebagai kolom eksperimen TERPISAH dengan bukti kata-kunci; klasifikasi tematik leksikon terpandu 5 kategori + kategori residual "Other/No-Frame" dengan pencocokan word-boundary dan penyimpanan bukti leksikal.
+   d. Tahap 4 — SEBAGIAN (Analisis Deskriptif): Tabulasi distribusi sentimen/narasi lintas platform dan kawasan. Sintesis inferensial "Operational Discursive Synthesis" (pemetaan 4 fungsi Entman dari irisan Frame × Stance) berstatus PROPOSAL — belum divalidasi dan tidak boleh disajikan sebagai temuan.
+   e. Tahap 5 — BELUM DILAKSANAKAN (Validasi Reliabilitas): Anotasi ganda manusia (2 anotator independen, N = 100–150) dan penghitungan Cohen's Kappa, Precision, Recall, Macro-F1 belum dijalankan; karena itu TIDAK ADA metrik reliabilitas yang boleh dilaporkan pada manuskrip saat ini.
+
+
+
+/* =============================================================================
+   BAGIAN 6: REFERENSI (HALAMAN 5 GOOGLE DOCS)
+   (Salin ke bagian "REFERENSI" di halaman terakhir)
+============================================================================= */
+
+REFERENSI
+(REVISI INTEGRITAS 2026-11-07 — entri fabrikan dihapus, kesalahan bibliografis
+dikoreksi; daftar identik dengan PENJELASAN_METODE_DAN_LANGKAH_KERJA_RQ1.txt
+Bagian VI. Entri yang dihapus: Ammon 2001; Ku & Yiu 2012; Maclellan 2015-JPH;
+Halpern & Gibbs 2013-JCMC; Poncelas 2020-EAMT.)
+Barberá, P., Boydstun, A. E., Linn, S., McMahon, R., & Nagler, J. (2021). Automated text classification of news articles: A practical guide. Political Analysis, 29(1), 19-42. https://doi.org/10.1017/pan.2020.8
+
+Barbier, G., Feng, Z., Gundecha, P., & Liu, H. (2013). Provenance Data in Social Media. Morgan & Claypool.
+
+Barbieri, F., Camacho-Collados, J., Espinosa-Anke, L., & Neves, L. (2020). TweetEval: Unified benchmark and comparative evaluation for tweet classification. In Findings of the Association for Computational Linguistics: EMNLP 2020 (pp. 1644-1650). https://aclanthology.org/2020.findings-emnlp.148/
+
+Castells, M. (2015). Networks of Outrage and Hope: Social Movements in the Internet Age (2nd ed.). Polity Press.
+
+Cohen, J. (1960). A coefficient of agreement for nominal scales. Educational and Psychological Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104
+
+Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G., Guzmán, F., Grave, E., Ott, M., Zettlemoyer, L., & Stoyanov, V. (2020). Unsupervised cross-lingual representation learning at scale. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (pp. 8440-8451). https://aclanthology.org/2020.acl-main.747/
+
+Crystal, D. (2003). English as a Global Language (2nd ed.). Cambridge University Press.
+
+Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of Communication, 43(4), 51-58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x
+
+Halpern, D., & Gibbs, J. (2013). Social media as a catalyst for online deliberation? Exploring the affordances of Facebook and YouTube for political expression. Computers in Human Behavior, 29(3), 1159-1168. https://doi.org/10.1016/j.chb.2012.10.008
+
+Jungherr, A. (2015). Analyzing Political Communication with Digital Trace Data: The Role of Twitter Messages in Social Science Research. Springer.
+
+Küçük, D., & Can, F. (2020). Stance detection: A survey. ACM Computing Surveys, 53(1), Article 12, 1-37. https://doi.org/10.1145/3369026
+
+Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical data. Biometrics, 33(1), 159-174.
+
+Lawson, S. (2013). 'Melanesia': The history and politics of an idea. The Journal of Pacific History, 48(1), 1-22. https://doi.org/10.1080/00223344.2012.760839
+
+Loureiro, D., Barbieri, F., Neves, L., Espinosa-Anke, L., & Camacho-Collados, J. (2022). TimeLMs: Diachronic language models from Twitter. In Proceedings of ACL 2022: System Demonstrations. https://aclanthology.org/2022.acl-demo.25/
+
+Maclellan, N. (2016). West Papua, Indonesia and the Melanesian Spearhead Group: Competing logics in regional and international politics. Australian Journal of International Affairs, 70(5), 506-524. https://doi.org/10.1080/10357718.2015.1119231
+
+Matthes, J., & Kohring, M. (2008). The content analysis of media frames: Toward improving reliability and validity. Journal of Communication, 58(2), 258-279. https://doi.org/10.1111/j.1460-2466.2008.00384.x
+
+McCombs, M. E., & Shaw, D. L. (1972). The agenda-setting function of mass media. Public Opinion Quarterly, 36(2), 176-187.
+
+Milner, A. (2008). The Malays. Wiley-Blackwell.
+
+Mohammad, S. M., Kiritchenko, S., Sobhani, P., Zhu, X., & Cherry, C. (2016). SemEval-2016 Task 6: Detecting stance in tweets. In Proceedings of SemEval-2016 (pp. 31-41). https://aclanthology.org/S16-1003/
+
+Pöttker, H. (2003). News and its communicative quality: The inverted pyramid—When and why did it appear?. Journalism Studies, 4(4), 501-511. https://doi.org/10.1080/1461670032000136596
+
+Semetko, H. A., & Valkenburg, P. M. (2000). Framing European politics: A content analysis of press and television news. Journal of Communication, 50(2), 93-109.
+
+Wendt, A. (1999). Social Theory of International Politics. Cambridge University Press.
+================================================================================

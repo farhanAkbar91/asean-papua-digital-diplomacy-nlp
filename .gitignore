@@ -23,7 +23,7 @@ Thumbs.db
 
 # Workspace temporary / junk directories
 asean-sampah/
-data-sampah/
+archive/data-sampah_quarantine/
 .gemini/
 .idea/
 .vscode/
