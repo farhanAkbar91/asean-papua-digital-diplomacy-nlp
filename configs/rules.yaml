@@ -1,0 +1,119 @@
+# M1 externalized configuration — moved VERBATIM from src/nlp_core.py / src/run_inference.py
+# (pre-refactor commit 9cc0deb). Do not edit semantics without team approval.
+stance_target: Indonesia's Sovereignty & Governance in Papua
+variants:
+  x_v2:
+    critical:
+    - human rights
+    - un visit
+    - commissioner
+    - abuses
+    - genocide
+    - killings
+    - military emergency
+    - colonialism
+    - illegal in west papua
+    - expelled
+    - deforestation
+    - ecocide
+    - ethnocide
+    - displacement
+    - torture
+    - rights
+    - self-determination
+    - referendum
+    - independence
+    - protest
+    supportive:
+    - special autonomy
+    - otsus
+    - papuadevelopment
+    - peacefulpapua
+    - prosperouspapua
+    - pembangunan papua
+    - dukung pembangunan
+    - sekolah rakyat papua
+    - ketahanan pangan
+    - bantu rakyat papua
+    - psn
+    - synergy
+    passthrough:
+      Positif: Positif (Mendukung)
+      Negatif: Negatif (Kritis)
+      Netral: Netral
+  youtube:
+    critical:
+    - human rights
+    - un visit
+    - abuses
+    - genocide
+    - killings
+    - colonialism
+    - illegal occupation
+    - deforestation
+    - torture
+    - referendum
+    - independence
+    - free west papua
+    - merdeka
+    - dizalimi
+    - penjajah
+    - neo-colonialism
+    - apartheid
+    - atrocities
+    supportive:
+    - nkri harga mati
+    - papua is indonesia
+    - pembangunan papua
+    - terbaik tni
+    - tni is the best
+    - dukung indonesia
+    - otsus
+    - special autonomy
+    - infrastruktur
+    - indonesia damai
+    - save papua nkri
+    - tni polri
+    - separatis kejam
+    - berantas opm
+    - tetap indonesia
+    passthrough:
+      Positif: Positif (Mendukung Pembangunan/NKRI)
+      Negatif: Negatif (Kritis terhadap Diplomasi RI)
+      Netral: Netral
+  news:
+    critical:
+    - human rights violation
+    - rights abuses
+    - genocide
+    - torture
+    - illegal occupation
+    - colonial
+    - oppression
+    - internet blackout
+    - crushed protest
+    - treason charge
+    - killed civilians
+    - destruction of forest
+    - nickel mining threat
+    - marginalized
+    - apartheid
+    - atrocities
+    supportive:
+    - carbon storage
+    - infrastructure project
+    - economic development
+    - special autonomy
+    - sovereignty recognized
+    - rescued pilot
+    - freed hostage
+    - lawful territory
+    - aid to pacific
+    - peaceful dialogue
+    - investing in papua
+    - recovers body
+    - firm action against terror
+    passthrough:
+      negative: Negatif (Kritis terhadap Posisi/Diplomasi RI)
+      positive: Positif (Mendukung Pembangunan/Kedaulatan RI)
+      neutral: Netral (Liputan Faktual/Berimbang)

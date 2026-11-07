@@ -1,0 +1,119 @@
+# M1 externalized configuration — moved VERBATIM from src/nlp_core.py / src/run_inference.py
+# (pre-refactor commit 9cc0deb). Do not edit semantics without team approval.
+residual_label: Other/No-Frame
+category_priority:
+- HAM & Pelanggaran Kemanusiaan
+- Identitas Melanesia & Solidaritas Pasifik
+- Kedaulatan & Penentuan Nasib Sendiri
+- Pembangunan & Stabilitas Keamanan
+- Diplomasi & Hubungan Internasional
+categories:
+  HAM & Pelanggaran Kemanusiaan:
+  - human rights
+  - un commissioner
+  - rights abuse
+  - abuses
+  - genocide
+  - violations
+  - investigation
+  - torture
+  - civilians
+  - hak asasi
+  - pbb
+  - killings
+  - atrocities
+  - massacre
+  - violence
+  - racism
+  - rasis
+  - brutal
+  - unrest
+  - clashes
+  - displaced
+  - refugees
+  - komnas ham
+  Identitas Melanesia & Solidaritas Pasifik:
+  - melanesia
+  - melanesian
+  - msg
+  - melanesian spearhead group
+  - pacific forum
+  - vanuatu
+  - solomon islands
+  - fiji
+  - kanaky
+  - solidarity
+  - brotherhood
+  - rumpun
+  - wantok
+  - black people
+  - indigenous
+  - ras
+  - etnis
+  - ancestors
+  - oceania
+  - cultural identity
+  Kedaulatan & Penentuan Nasib Sendiri:
+  - sovereignty
+  - referendum
+  - independence
+  - otsus
+  - freedom
+  - decolonisation
+  - ulmwp
+  - nkri
+  - kedaulatan
+  - otonomi khusus
+  - merdeka
+  - pepera
+  - act of free choice
+  - self-determination
+  - separatist
+  - separatis
+  - treason
+  - makar
+  - balkanization
+  - territorial integrity
+  Pembangunan & Stabilitas Keamanan:
+  - development
+  - infrastructure
+  - conflict
+  - tni
+  - opm
+  - tpnpb
+  - military
+  - armed group
+  - hostage
+  - pilot
+  - economy
+  - pembangunan
+  - infrastruktur
+  - jokowi
+  - prabowo
+  - tambang
+  - freeport
+  - nickel
+  - raja ampat
+  - carbon capture
+  - security forces
+  - police
+  Diplomasi & Hubungan Internasional:
+  - diplomacy
+  - bilateral
+  - foreign minister
+  - ambassador
+  - foreign policy
+  - united nations
+  - asean
+  - treaty
+  - negotiation
+  - dialogue
+  - ties
+  - international community
+  - canberra
+  - wellington
+  - australia
+  - new zealand
+  - pacific islands
+  - summit
+  - kemlu
