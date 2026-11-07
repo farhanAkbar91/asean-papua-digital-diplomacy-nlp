@@ -1,0 +1,35 @@
+{
+  "artifact": "D:\\portfolio\\asean-papua-digital-diplomacy-nlp\\data\\processed\\fresh_inference_en.csv",
+  "artifact_sha256": "5c7742228200fbdeb2a4c7dd8c870709ae8a056f6fafd3e51495a2eaf277766d",
+  "determinism_spot_check": "passed (first 10 records re-predicted identically)",
+  "environment": {
+    "device": "cpu",
+    "python": "3.11.9",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.2"
+  },
+  "inferred_at_utc": "2026-11-07T17:35:50Z",
+  "input": {
+    "golden_baseline_untouched": true,
+    "master": "D:\\portfolio\\asean-papua-digital-diplomacy-nlp\\data\\processed\\master_triangulation_repaired.csv",
+    "master_sha256": "a987d0c52d5ebfabc3a2259fa29f6522fd91cfce84efa78c2dc0f682876cf015"
+  },
+  "label_distribution": {
+    "Negative": 348,
+    "Neutral": 537,
+    "Positive": 128
+  },
+  "note": "Separate refresh artifact: the production master and the M0 golden baseline are intentionally NOT modified. Merging these labels into the master supersedes the golden baseline and requires team approval.",
+  "rows": 1013,
+  "runtime_seconds": 607.2,
+  "schema": "fresh-inference-manifest-v1",
+  "target_language": "en",
+  "versions": {
+    "lexicon_version": null,
+    "model_name": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "model_revision_registry": "unknown (never pinned historically)",
+    "model_version": "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
+    "model_version_capture_method": "resolved post-download from the local Hugging Face cache snapshot (refs/main -> snapshots/3216a57f.../pytorch_model.bin, the weights actually loaded); transformers 5.22.2 did not populate config._commit_hash at load time",
+    "pipeline_version": "2.0.0-m2"
+  }
+}

@@ -14,7 +14,7 @@
 | YouTube Comments | 884 | `data/raw/youtube_papua_asean_comments.csv` (884/884 ID match vs `archive/legacy_pipelines/10_hasil5_yt`) | `created_at` is a RELATIVE string ("7 years ago") — absolute dates unavailable; 59.7% of comments sit under one channel (Al Jazeera English); 2 emoji-only rows clean to empty text |
 | Media Berita Online | 312 | `data/raw/news_papua_asean_articles.csv` (312/312 ID match vs `archive/legacy_pipelines/13_hasil_news`) | dates span 2008-08-14 → 2026-09-04; RSS date-parse failures were stamped with the scrape day (2026-09-04, 4 articles) — treat those rows with caution; corpus contains **no Malay and no French** articles |
 
-**Measured language composition (repaired, `language` column)**: en ≈ 1018, id ≈ 300, und ≈ 231 (texts < 40 chars — below reliable detection), plus a small long tail from langdetect noise on short comments. The corpus is **English + Indonesian**, not the trilingual (EN/MS/FR) composition previously claimed.
+**Measured language composition (repaired, `language` column, exact)**: en 1,013 · id 295 · und 213 (texts below the 40-char reliability threshold) · **19 further records outside EN/ID/und**: tl 4, lt 2, and 13 singleton detections (ro, nl, et, so, ko, ru, lv, ja, da, fr, no, de, sw — one record each; langdetect results on short/noisy texts, retained and flagged, but outside EN-only inference scope). The corpus is **English + Indonesian**, not the trilingual (EN/MS/FR) composition previously claimed.
 
 **Provenance finding (verified):** the legacy master's X-row annotations were produced by an unshipped pipeline (news-vocabulary labels; the v2 rule/passthrough relationship fails for 237/237 no-fire rows). The repaired dataset therefore recovers X raw model labels deterministically from `archive/legacy_pipelines/7_hasil4_x` where the rule layer provably did not fire (237 rows) and marks the remaining 138 rows `inference_source='requires_rerun'` rather than inventing them.
 
@@ -26,7 +26,7 @@
 | `sentiment_model_score` | Model probability of the predicted class; present iff `sentiment_model` present | Authoritative |
 | `inference_source` | `legacy_raw_recovered` \| `requires_rerun` \| `fresh_inference` | Provenance flag |
 | `stance_rule_adjusted`, `stance_rule_evidence`, `stance_rule_fired` | Experimental keyword calibration layer (legacy-equivalent logic, per-platform lists), with the keywords that fired | **Experimental — NOT for headline results** until human-validated |
-| `stance_target` | Constant target string; documents the construct the stance layer aims at | Declarative only — the transformer is a generic sentiment model, not a target-aware stance model |
+| `stance_target` | Constant string (`Indonesia's Sovereignty & Governance in Papua`) inherited from the legacy pipeline | **Experimental metadata, not a team-approved final research construct**; the transformer is a generic sentiment model, not a target-aware stance model |
 | `thematic_frame`, `framing_evidence` | Word-boundary lexical topic classification into 5 coded categories + `Other/No-Frame`; matched keywords stored | Topic salience, **not** a measurement of Entman's four framing functions |
 | `origin_country`, `origin_bloc`, `bloc_basis`, `topic_country_mentions` | X: actor origin from profile location (word-boundary gazetteer); YouTube: video-channel cohort; News: outlet country | `bloc_basis` states exactly what each bloc value is based on |
 | `language`, `language_source` | API `lang` (X, normalized) or langdetect seed=0 (YT/news); <40 chars → `und` | Measured, with documented reliability limit |
@@ -46,19 +46,19 @@
 | Selection reproduction (X 427→375) | ✅ done, verified exact (375/375 IDs) |
 | Cleaning, language tagging, geo/bloc, framing, rule layer | ✅ done in `src/` + `tests/` (unit + integration tested, 42 tests) |
 | Rule-layer traceability vs legacy outputs | ✅ verified: YT 884/884, News 312/312, X 237 recovered + 138 flagged |
-| Transformer inference (raw labels) | ⚠️ partially recoverable from legacy artifacts; 138 X rows require re-run via `src/run_inference.py` (needs Colab) |
+| Transformer inference (raw labels) | ✅ **fresh verified inference executed (T1, 2026-11-08)**: 1,013 EN retained records inferred with the approved model via `src/run_fresh_inference.py` (artifact `data/processed/fresh_inference_en.csv` + manifest, actual resolved HF revision recorded). The production master and M0 golden baseline remain frozen; merging fresh labels is a team-approved next step. Historical predictions remain historical. |
 | Translation of non-English items | ❌ prepared, **not executed** |
 | Human gold standard (N=100–150, 2 independent annotators) | ❌ **not conducted** |
-| Cohen's Kappa / Precision / Recall / F1 | ❌ **not computed** (nothing to compute against) |
+| Cohen's Kappa / Precision / Recall / F1 | ❌ **not computed** (nothing to compute against). Per the 2026-11-08 team decision, κ is NOT a mandatory completion requirement: with one annotator, document a *single-annotator reference* and, if model predictions are compared against it, report precision/recall/F1 + confusion matrix with that explicit limitation (F1 does not replace inter-annotator reliability); with no annotation, restrict results to descriptive exploratory analysis |
 | Statistical significance / uncertainty estimates | ❌ not computed |
-| "Operational Discursive Synthesis" (Entman 4 functions from Frame×Stance) | ❌ proposal only — not implemented, not validated |
+| "Operational Discursive Synthesis" (Entman 4 functions from Frame×Stance) | ❌ proposal only — not implemented, not validated. The lexical thematic pipeline is topic-salience analysis and must NOT be presented as an operationalization of Entman's four framing functions (problem definition, causal interpretation, moral evaluation, treatment recommendation); if Entman framing is required, use qualitative coding on a selected sample per an IR-team-approved codebook |
 
 ## 5. Reproduction
 
 ```bash
 pip install -r requirements.txt
 python src/build_master_repaired.py             # -> data/processed/master_triangulation_repaired.csv + build_manifest.json
-python -m unittest discover -s tests            # 42 tests
+python -m unittest discover -s tests            # 118 tests
 # in Colab (torch + transformers):
 python src/run_inference.py --platform x       # then re-run the builder to merge
 ```
@@ -87,7 +87,11 @@ python src/run_inference.py --platform x       # then re-run the builder to merg
 
 ## 8. Required next steps before any publication claim
 
-1. Re-run inference in Colab for the 138 flagged X rows (and optionally re-verify YT/News) via `run_inference.py`.
-2. Decide and implement the cross-lingual path (translate id→en with `opus-mt-id-en` + quality spot-checks, or test a multilingual model on id text) — then re-run.
-3. Execute the human validation protocol: stratified random N=100–150, **two independent annotators** blind to model output, a written codebook, then Cohen's κ (target ≥ 0.75 as a *measured* result) and P/R/F1 for (a) model and (b) model+rule variants.
-4. Only after (3): decide whether the rule layer is retained, and regenerate all descriptive statistics with uncertainty estimates.
+1. ~~Re-run inference~~ ✅ DONE (T1, 2026-11-08): fresh verified inference for all 1,013 EN retained records (`data/processed/fresh_inference_en.csv` + manifest, actual resolved HF revision recorded). Non-EN rows are intentionally out of sentiment scope.
+2. **Team decision**: cross-lingual path for the 295 id + 213 und rows (translate id→en with `opus-mt-id-en` + quality spot-checks, or a multilingual model) — or scope those rows out of sentiment claims.
+3. **Human annotation** (per the 2026-11-08 team decision, **Cohen's κ is NOT a mandatory completion requirement**): with two independent annotators, report κ as measured; with **one annotator**, document the labels as a *single-annotator reference* and — if model predictions are compared against it — report precision/recall/F1 + confusion matrix **with the explicit single-annotator limitation** (F1 does not replace inter-annotator reliability); with **no annotation**, restrict all results to descriptive exploratory analysis and claim no validated model performance. N=150 is a provisional pilot proposal, not a guaranteed-sufficient sample; settle stratification and class coverage before finalizing the annotation size.
+4. **Entman framing**: the lexical thematic pipeline is topic-salience analysis; it must NOT be presented as an operationalization of Entman's four framing functions (problem definition, causal interpretation, moral evaluation, treatment recommendation). Automated Entman detection requires an IR-team-approved codebook, a defined unit of analysis, coding rules/examples per function, and a documented human validation procedure — otherwise recommend **qualitative coding on a selected text sample**.
+5. **Stance**: a construct distinct from sentiment, requiring an explicit target/proposition (candidates — not interchangeable: Indonesian sovereignty over Papua; Papuan self-determination; human-rights protection in Papua; Indonesian government policy; international diplomatic intervention) and the actor distinction (publisher vs author vs quoted actor vs overall textual stance). The rule layer remains experimental; expansion waits for the IR team's target/unit/label/codebook/use specification.
+6. Only after (3)–(5): regenerate descriptive statistics with uncertainty estimates and finalize the handoff.
+
+**Ownership boundary (handoff)**: the NLP engineering owner delivers the implemented pipeline, evidence, documentation, and known limitations — and is NOT responsible for approving research scope, recruiting annotators, making sociological/IR interpretations, collecting unlimited additional data, or post-handoff research changes. The IR team owns the theoretical constructs, the framing/stance codebooks, and interpretation rules; unresolved theoretical decisions are team-owned blockers, not engineering defects.

@@ -15,6 +15,7 @@
 pandas>=2.2,<4
 numpy>=1.26,<3
 langdetect==1.0.9
+PyYAML==6.0.3  # M1: configuration externalization (configs/*.yaml)
 
 # --- inference environment only (not needed for builder/tests) ---
 transformers==4.44.2

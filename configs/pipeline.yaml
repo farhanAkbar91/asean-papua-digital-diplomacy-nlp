@@ -1,0 +1,8 @@
+# M1 externalized configuration — moved VERBATIM from src/nlp_core.py / src/run_inference.py
+# (pre-refactor commit 9cc0deb). Do not edit semantics without team approval.
+pipeline_version: "2.0.0-m2"  # post-repair modular pipeline, module split M2 (commit 9cc0deb + M1 config + M2 split)
+language_detection:
+  langdetect_seed: 0
+  min_chars: 40
+preprocessing:
+  lead_max_words: 250

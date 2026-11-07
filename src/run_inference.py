@@ -40,10 +40,15 @@ import pandas as pd
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 import nlp_core as nc  # noqa: E402
+from pipeline import sentiment as _sentiment  # noqa: E402
+
+# M2: model identity, label order, loading, and prediction now live in
+# pipeline.sentiment (single implementation). This entry point keeps its CLI
+# behavior: loud failure via die() with exit code 1, identical messages.
+MODEL_NAME = _sentiment.MODEL_NAME
+LABELS = _sentiment.LABELS
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-MODEL_NAME = "cardiffnlp/twitter-roberta-base-sentiment-latest"
-LABEL_MAP = {"negative": "Negative", "neutral": "Neutral", "positive": "Positive"}
 
 
 def die(msg: str) -> None:
@@ -52,38 +57,16 @@ def die(msg: str) -> None:
 
 
 def load_model():
+    """Delegates to pipeline.sentiment; loud failure preserved (exit 1)."""
     try:
-        import torch
-        from transformers import AutoModelForSequenceClassification, AutoTokenizer
-    except Exception as e:
-        die(f"torch/transformers unavailable ({e}). Run this in Google Colab. "
-            "NO fallback inference is permitted.")
-    try:
-        tok = AutoTokenizer.from_pretrained(MODEL_NAME)
-        model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
-        model.eval()
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        model.to(device)
-        print(f"[inference] model loaded on {device}: {MODEL_NAME}")
-        return tok, model, device
-    except Exception as e:
-        die(f"cannot load {MODEL_NAME}: {e}. Check network/HF access. "
-            "NO fallback inference is permitted.")
+        return _sentiment.load_model()
+    except _sentiment.SentimentError as e:
+        die(str(e))
 
 
 def predict(texts, tok, model, device):
-    import torch
-    out = []
-    with torch.no_grad():
-        for i, t in enumerate(texts):
-            enc = tok(t, return_tensors="pt", truncation=True, max_length=512).to(device)
-            logits = model(**enc).logits[0]
-            probs = torch.softmax(logits, dim=-1)
-            idx = int(probs.argmax().item())
-            out.append((LABEL_MAP[idx], round(float(probs[idx].item()), 4)))
-            if (i + 1) % 100 == 0:
-                print(f"[inference] {i + 1}/{len(texts)}")
-    return out
+    """Delegates to pipeline.sentiment (per-text loop; batching is M3)."""
+    return _sentiment.predict(texts, tok, model, device)
 
 
 def main() -> None:
@@ -126,16 +109,23 @@ def main() -> None:
     print(f"[inference] NOTE: {n_non_en}/{len(sub)} rows are non-English (or too "
           f"short to detect) -> sentiment_model=NaN. The model is English-only "
           f"per its official card; translation is a separate, quality-checked step.")
-    texts = [nc.clean_for_model_card(str(t)) if l == "en" else ""
-             for t, l in zip(src_texts, lang_list)]
+    guard = _sentiment.english_only_mask(lang_list)
+    texts = [nc.clean_for_model_card(str(t)) if keep else ""
+             for t, keep in zip(src_texts, guard)]
 
     preds = predict(texts, tok, model, device)
+    # T3: explicit provenance — the ACTUAL resolved model revision and the
+    # pipeline version. No fresh prediction may exist without these stamps.
+    model_version = _sentiment.resolved_model_version(model)
     out = pd.DataFrame({
         "post_id": id_col.values,
-        "sentiment_model": [p[0] if l == "en" else None
-                            for p, l in zip(preds, lang_list)],
-        "sentiment_model_score": [p[1] if l == "en" else None
-                                   for p, l in zip(preds, lang_list)],
+        "sentiment_model": [p[0] if keep else None
+                            for p, keep in zip(preds, guard)],
+        "sentiment_model_score": [p[1] if keep else None
+                                   for p, keep in zip(preds, guard)],
+        "inference_source": "fresh_inference",
+        "model_version": [model_version if keep else None for keep in guard],
+        "pipeline_version": _sentiment.PIPELINE_VERSION,
     })
     out_path = os.path.join(ROOT, "data", "processed",
                             f"model_labels_{args.platform}_refresh.csv")

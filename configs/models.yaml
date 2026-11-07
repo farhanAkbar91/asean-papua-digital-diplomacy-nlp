@@ -1,0 +1,17 @@
+# M1 externalized configuration — moved VERBATIM from src/nlp_core.py / src/run_inference.py
+# (pre-refactor commit 9cc0deb). Do not edit semantics without team approval.
+sentiment:
+  model_name: cardiffnlp/twitter-roberta-base-sentiment-latest
+  task: sentiment-analysis
+  language: en
+  label_order:
+  - Negative
+  - Neutral
+  - Positive
+  citation: Loureiro et al. (2022), TimeLMs, ACL 2022 System Demonstrations
+  revision: unknown (never pinned historically)
+  historical_execution_metadata: unknown (legacy runs recorded no transformers version/date)
+  preprocessing:
+    usernames: '@user'
+    urls: http
+  language_guard: english_only

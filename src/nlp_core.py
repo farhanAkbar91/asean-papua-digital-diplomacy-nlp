@@ -28,6 +28,17 @@ from __future__ import annotations
 import re
 from typing import Dict, List, Optional, Tuple
 
+# M1: externalized configuration — SINGLE ACTIVE SOURCE (configs/*.yaml).
+# The pre-change in-code literals are preserved only as witnesses in
+# tests/test_m1_config.py; keeping them here as well would create two
+# configuration sources that could silently diverge.
+from config_loader import load_framing_config, load_pipeline_config, load_rules_config
+
+_FRAMING_CFG = load_framing_config()
+_RULES_CFG = load_rules_config()
+_PIPELINE_CFG = load_pipeline_config()
+_LID_MIN_CHARS = _PIPELINE_CFG["lid_min_chars"]
+
 # ============================================================================
 # 1. TEXT CLEANING
 # ============================================================================
@@ -71,7 +82,7 @@ _LANGDETECT_AVAILABLE = False
 try:  # optional dependency; pipeline stays usable without it
     from langdetect import DetectorFactory, detect as _ld_detect
 
-    DetectorFactory.seed = 0  # deterministic
+    DetectorFactory.seed = _PIPELINE_CFG["langdetect_seed"]  # deterministic (config)
     _LANGDETECT_AVAILABLE = True
 except Exception:  # pragma: no cover - exercised only when lib missing
     pass
@@ -87,9 +98,9 @@ def normalize_x_language(code: str) -> str:
 def detect_language(text: str) -> str:
     """Detect language via langdetect (seeded, deterministic). Returns ISO-639-1
     or 'und' on failure/empty. NOTE: langdetect is a heuristic LID; texts shorter
-    than ~40 characters are unreliable and are returned as 'und' by convention
+    shorter than the configured minimum (pipeline.yaml language_detection.min_chars) are unreliable and are returned as 'und' by convention
     (documented limitation)."""
-    if not isinstance(text, str) or len(text.strip()) < 40:
+    if not isinstance(text, str) or len(text.strip()) < _LID_MIN_CHARS:
         return "und"
     if not _LANGDETECT_AVAILABLE:
         return "und"
@@ -207,42 +218,11 @@ def topic_country_mentions(text: str) -> List[str]:
 # (the most complete shipped variant, incl. the coded F5 "Diplomasi" frame)
 # and now applied to ALL platforms. The residual is a separate category.
 NARRATIVE_CATEGORIES: Dict[str, List[str]] = {
-    "HAM & Pelanggaran Kemanusiaan": [
-        "human rights", "un commissioner", "rights abuse", "abuses", "genocide",
-        "violations", "investigation", "torture", "civilians", "hak asasi",
-        "pbb", "killings", "atrocities", "massacre", "violence", "racism",
-        "rasis", "brutal", "unrest", "clashes", "displaced", "refugees",
-        "komnas ham",
-    ],
-    "Identitas Melanesia & Solidaritas Pasifik": [
-        "melanesia", "melanesian", "msg", "melanesian spearhead group",
-        "pacific forum", "vanuatu", "solomon islands", "fiji", "kanaky",
-        "solidarity", "brotherhood", "rumpun", "wantok", "black people",
-        "indigenous", "ras", "etnis", "ancestors", "oceania", "cultural identity",
-    ],
-    "Kedaulatan & Penentuan Nasib Sendiri": [
-        "sovereignty", "referendum", "independence", "otsus", "freedom",
-        "decolonisation", "ulmwp", "nkri", "kedaulatan", "otonomi khusus",
-        "merdeka", "pepera", "act of free choice", "self-determination",
-        "separatist", "separatis", "treason", "makar", "balkanization",
-        "territorial integrity",
-    ],
-    "Pembangunan & Stabilitas Keamanan": [
-        "development", "infrastructure", "conflict", "tni", "opm", "tpnpb",
-        "military", "armed group", "hostage", "pilot", "economy", "pembangunan",
-        "infrastruktur", "jokowi", "prabowo", "tambang", "freeport", "nickel",
-        "raja ampat", "carbon capture", "security forces", "police",
-    ],
-    "Diplomasi & Hubungan Internasional": [
-        "diplomacy", "bilateral", "foreign minister", "ambassador",
-        "foreign policy", "united nations", "asean", "treaty", "negotiation",
-        "dialogue", "ties", "international community", "canberra",
-        "wellington", "australia", "new zealand", "pacific islands",
-        "summit", "kemlu",
-    ],
+    cat: list(_FRAMING_CFG["categories"][cat])  # document order = evaluation/tie-break priority
+    for cat in _FRAMING_CFG["category_priority"]
 }
 
-FRAME_RESIDUAL = "Other/No-Frame"
+FRAME_RESIDUAL: str = _FRAMING_CFG["residual_label"]
 
 _FRAME_PATTERNS: Dict[str, List[re.Pattern]] = {
     cat: [re.compile(r"\b" + re.escape(kw) + r"\b", re.IGNORECASE)
@@ -281,72 +261,9 @@ def classify_framing(text: str) -> Tuple[str, Dict[str, int], List[str]]:
 # The repaired pipeline stores this layer in a SEPARATE column and never
 # overwrites `sentiment_model`.
 
-STANCE_RULES: Dict[str, Dict] = {
-    "x_v2": {
-        "critical": [
-            "human rights", "un visit", "commissioner", "abuses", "genocide",
-            "killings", "military emergency", "colonialism",
-            "illegal in west papua", "expelled", "deforestation", "ecocide",
-            "ethnocide", "displacement", "torture", "rights",
-            "self-determination", "referendum", "independence", "protest",
-        ],
-        # verbatim legacy list (5_sentiment_analysis_v2/process_nlp_v2_colab.py)
-        "supportive": [
-            "special autonomy", "otsus", "papuadevelopment", "peacefulpapua",
-            "prosperouspapua", "pembangunan papua", "dukung pembangunan",
-            "sekolah rakyat papua", "ketahanan pangan", "bantu rakyat papua",
-            "psn", "synergy",
-        ],
-        "passthrough": {"Positif": "Positif (Mendukung)",
-                        "Negatif": "Negatif (Kritis)",
-                        "Netral": "Netral"},
-    },
-    "youtube": {
-        "critical": [
-            "human rights", "un visit", "abuses", "genocide", "killings",
-            "colonialism", "illegal occupation", "deforestation", "torture",
-            "referendum", "independence", "free west papua", "merdeka",
-            "dizalimi", "penjajah", "neo-colonialism", "apartheid",
-            "atrocities",
-        ],
-        "supportive": [
-            "nkri harga mati", "papua is indonesia", "pembangunan papua",
-            "terbaik tni", "tni is the best", "dukung indonesia", "otsus",
-            "special autonomy", "infrastruktur", "indonesia damai",
-            "save papua nkri", "tni polri", "separatis kejam",
-            "berantas opm", "tetap indonesia",
-        ],
-        "passthrough": {
-            "Positif": "Positif (Mendukung Pembangunan/NKRI)",
-            "Negatif": "Negatif (Kritis terhadap Diplomasi RI)",
-            "Netral": "Netral",
-        },
-    },
-    "news": {
-        "critical": [
-            "human rights violation", "rights abuses", "genocide", "torture",
-            "illegal occupation", "colonial", "oppression",
-            "internet blackout", "crushed protest", "treason charge",
-            "killed civilians", "destruction of forest",
-            "nickel mining threat", "marginalized", "apartheid", "atrocities",
-        ],
-        "supportive": [
-            "carbon storage", "infrastructure project",
-            "economic development", "special autonomy",
-            "sovereignty recognized", "rescued pilot", "freed hostage",
-            "lawful territory", "aid to pacific", "peaceful dialogue",
-            "investing in papua", "recovers body",
-            "firm action against terror",
-        ],
-        "passthrough": {
-            "negative": "Negatif (Kritis terhadap Posisi/Diplomasi RI)",
-            "positive": "Positif (Mendukung Pembangunan/Kedaulatan RI)",
-            "neutral": "Netral (Liputan Faktual/Berimbang)",
-        },
-    },
-}
+STANCE_RULES: Dict[str, Dict] = _RULES_CFG["variants"]
 
-STANCE_TARGET = "Indonesia's Sovereignty & Governance in Papua"
+STANCE_TARGET = _RULES_CFG["stance_target"]
 
 
 def apply_stance_rule(text: str, base_label: str,
@@ -407,8 +324,11 @@ def clean_news_text(text: str) -> str:
     return " ".join(text.split())
 
 
-def extract_lead_text(full_text: str, max_words: int = 250) -> str:
-    """Headline + first `max_words` words of the cleaned article body."""
+def extract_lead_text(full_text: str, max_words: int | None = None) -> str:
+    """Headline + first `max_words` words of the cleaned article body.
+    Default comes from configs/pipeline.yaml (preprocessing.lead_max_words)."""
+    if max_words is None:
+        max_words = _PIPELINE_CFG["lead_max_words"]
     cleaned = clean_news_text(full_text)
     return " ".join(cleaned.split()[:max_words])
 

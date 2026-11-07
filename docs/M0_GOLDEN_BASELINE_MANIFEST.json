@@ -1,0 +1,92 @@
+{
+  "artifact_type": "M0_GOLDEN_BASELINE",
+  "field_list_note": "supersedes the M0 field list in NLP_PIPELINE_REFACTOR_PLAN.md (which duplicated thematic_frame); stance_target included as construct declaration; text columns intentionally excluded (joined via post_id)",
+  "generated_at_utc": "2026-11-07T15:24:18Z",
+  "golden_files": [
+    {
+      "columns": [
+        "post_id",
+        "platform",
+        "language",
+        "language_source",
+        "origin_country",
+        "origin_bloc",
+        "bloc_basis",
+        "country_bloc",
+        "sentiment_model",
+        "sentiment_model_score",
+        "inference_source",
+        "stance_target",
+        "stance_rule_variant",
+        "stance_rule_adjusted",
+        "stance_rule_evidence",
+        "stance_rule_fired",
+        "legacy_final_label",
+        "thematic_frame",
+        "framing_evidence"
+      ],
+      "determinism": "re-running the documented export procedure on the same source dataset + register yields a byte-identical file",
+      "encoding": "utf-8",
+      "join_key": "post_id (unique, string)",
+      "line_terminator": "\\n",
+      "na_representation": "empty string",
+      "path": "data/golden/m0/golden_baseline_m0.csv",
+      "rows": 1540,
+      "sha256": "4e2cf764f1800266eacf3a96763c901d2b2438fb54f0655207a2ba4a3372a370"
+    }
+  ],
+  "population": {
+    "definition": "rows of master_triangulation_repaired.csv whose post_id is NOT excluded by docs/DATA_EXCLUSION_REGISTER.csv (dataset=master_repaired); sorted by post_id ascending (string)",
+    "exclusion_register": {
+      "excluded_master_rows": 31,
+      "path": "docs/DATA_EXCLUSION_REGISTER.csv",
+      "sha256": "40837ae9fff28f5370529b80c419ea27dd0cd9585b3972d104eca38451834f23"
+    },
+    "expected_count": 1540,
+    "raw_inputs_unchanged": {
+      "data/raw/asean_papua_x_tweets.csv": "5bc0307633797625d272815d1a2e2cc482f2f879729ab639e63384b920dcedb3",
+      "data/raw/news_papua_asean_articles.csv": "77050bb62c07d24d63a856a4898ffb89428ec0212598ab92e30b35ce74d2d3a1",
+      "data/raw/youtube_papua_asean_comments.csv": "c05b561461b96fc7484ed1b146212e3fdc0521104ec9f54f303d655e49585575"
+    },
+    "source_dataset": {
+      "path": "data/processed/master_triangulation_repaired.csv",
+      "rows_total": 1571,
+      "sha256": "a987d0c52d5ebfabc3a2259fa29f6522fd91cfce84efa78c2dc0f682876cf015"
+    }
+  },
+  "populations_for_regression": {
+    "P1_existing_predictions": {
+      "comparison_rule": "M1-M2: outputs must equal golden exactly (same code semantics). M3: batched-vs-single-loop determinism on these records; fresh-model output is NOT regressed against historical labels (differences expected and must be reported, never hidden)",
+      "count": 1407,
+      "definition": "sentiment_model present - HISTORICAL predictions preserved from legacy runs (provenance-tagged, not verified fresh inference)"
+    },
+    "P2_requires_rerun": {
+      "comparison_rule": "new-inference population; regression not applicable; outputs recorded as fresh_inference with model_version",
+      "count": 133,
+      "definition": "inference_source == requires_rerun (X only); no golden label exists"
+    },
+    "P3_non_english": {
+      "comparison_rule": "EN sentiment model guard must SKIP these; routing verification only; any prediction requires an approved route (translation/multilingual) - PENDING TEAM APPROVAL",
+      "count": 527,
+      "definition": "language != en (id, und, long-tail detections)"
+    },
+    "P4_und": {
+      "comparison_rule": "same as P3; fastText-LID evaluation may reclassify some - gate documented in refactor plan section 5.2",
+      "count": 213,
+      "definition": "language == und (short texts below 40-char LID threshold)"
+    }
+  },
+  "provenance_notes": [
+    "All 1,407 existing sentiment predictions are HISTORICAL: X labels recovered deterministically from archive/legacy_pipelines/7_hasil4_x (legacy rule passthrough relation); YouTube/News labels copied from legacy per-platform outputs (10_hasil5_yt, 13_hasil_news).",
+    "Legacy runs used the model identifier cardiffnlp/twitter-roberta-base-sentiment-latest (per legacy script code) but recorded NO execution metadata (transformers version, revision, date); the X annotations additionally come from a partially unshipped pipeline. Historical != verified fresh inference.",
+    "The language guard was NOT enforced historically: id and und rows carry historical predictions produced by running the English-only model on untranslated text (evidence: label distributions below in preflight report).",
+    "stance_rule_* columns are the experimental keyword layer, verbatim-preserved; thematic_frame/framing_evidence are the repaired lexicon outputs.",
+    "legacy_final_label column = pre-repair label, provenance only, never to be analyzed."
+  ],
+  "repo": {
+    "branch": "repo-restructuring",
+    "code_state": "production+test code identical to commit (verified via git status -- src tests)",
+    "commit": "9cc0deb801b76a443413c3a53eb929f6f2a5c472"
+  },
+  "schema_version": "golden-schema-v1"
+}
