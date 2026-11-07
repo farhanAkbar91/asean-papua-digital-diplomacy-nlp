@@ -1,0 +1,96 @@
+{
+  "generated_at_utc": "2026-11-07T13:29:46.857197+00:00",
+  "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+  "langdetect_available": true,
+  "transformers_available": false,
+  "purpose": "Repaired master dataset (pilot corpus). NO human gold-standard validation exists; no kappa/precision/recall/F1 may be reported.",
+  "provenance_findings": {
+    "x_annotations_not_reproducible_from_shipped_code": "The legacy master's X rows use the NEWS label vocabulary ('Negatif (Kritis terhadap Posisi/Diplomasi RI)', lowercase English raw labels) and do not satisfy the v2 X pipeline's rule/passthrough relationship for 237/237 no-fire rows. They were produced by an unshipped pipeline. The repaired dataset therefore recovers raw model labels deterministically from 7_hasil4_x where the rule layer did not fire, and marks the remaining rows 'requires_rerun' rather than fabricating them.",
+    "youtube_emoji_only_rows": "2 YouTube comments clean to an empty string (emoji/URL-only); legacy stored NaN for them. Kept with empty clean_text."
+  },
+  "input_sha256": {
+    "x_raw": "5bc0307633797625d272815d1a2e2cc482f2f879729ab639e63384b920dcedb3",
+    "yt_raw": "c05b561461b96fc7484ed1b146212e3fdc0521104ec9f54f303d655e49585575",
+    "news_raw": "77050bb62c07d24d63a856a4898ffb89428ec0212598ab92e30b35ce74d2d3a1",
+    "x_legacy": "4396f5a43b4fec8f4eb45ddcda54fec1ace358fde0a40d0c3491dec4959ec719",
+    "yt_legacy": "1f5963f7b929d93f77332997968f119ec500ece11ddc9ffad2c3127031735fc3",
+    "news_legacy": "ddf06b570c3d79c320847f69310429f7531ace3459a5582c6d4109a090fc3351",
+    "legacy_master": "7aba3fe8e6a774ba2fc13e06248351ccb6e5ffeffca984e789e98d3728a9c564"
+  },
+  "stats": {
+    "total_rows": 1571,
+    "x": {
+      "n_selected": 375,
+      "legacy_ids_not_reproduced": [],
+      "repaired_ids_not_in_legacy": [],
+      "n_requires_rerun": 138,
+      "n_legacy_raw_recovered": 237
+    },
+    "youtube": {
+      "n_selected": 884,
+      "id_mismatch_vs_legacy": [],
+      "rule_traceability_matches": 884,
+      "rule_traceability_total": 884
+    },
+    "news": {
+      "n_selected": 312,
+      "id_mismatch_vs_legacy": [],
+      "rule_traceability_matches": 312,
+      "rule_traceability_total": 312
+    },
+    "clean_text_matches_legacy": {
+      "x": 375,
+      "youtube": 882
+    },
+    "vs_legacy_master": {
+      "thematic_frame_changed": 914,
+      "country_bloc_changed": 233,
+      "note": "changes are EXPECTED: residual frames moved to 'Other/No-Frame'; X blocs now derive from profile location with word-boundary matching (AUD-04/AUD-06)"
+    },
+    "language_distribution": {
+      "en": 1018,
+      "id": 300,
+      "und": 231,
+      "ro": 4,
+      "tl": 4,
+      "lt": 2,
+      "nl": 1,
+      "et": 1,
+      "so": 1,
+      "ko": 1,
+      "ru": 1,
+      "lv": 1,
+      "ja": 1,
+      "da": 1,
+      "fr": 1,
+      "no": 1,
+      "de": 1,
+      "sw": 1
+    },
+    "origin_bloc_distribution_x": {
+      "Wacana Regional Non-Spesifik": 267,
+      "Mitra Global": 56,
+      "Blok Pasifik & Melanesia": 48,
+      "Blok ASEAN": 4
+    },
+    "thematic_frame_distribution": {
+      "Other/No-Frame": 725,
+      "Pembangunan & Stabilitas Keamanan": 256,
+      "Kedaulatan & Penentuan Nasib Sendiri": 184,
+      "Identitas Melanesia & Solidaritas Pasifik": 167,
+      "HAM & Pelanggaran Kemanusiaan": 161,
+      "Diplomasi & Hubungan Internasional": 78
+    },
+    "sentiment_model_distribution": {
+      "Neutral": 945,
+      "Negative": 370,
+      "NaN": 138,
+      "Positive": 118
+    },
+    "stance_rule_fired_distribution": {
+      "x": 138,
+      "youtube": 184,
+      "news": 88
+    }
+  }
+}

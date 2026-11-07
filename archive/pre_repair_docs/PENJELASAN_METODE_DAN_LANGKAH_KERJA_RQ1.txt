@@ -1,0 +1,324 @@
+================================================================================
+DOKUMEN PENJELASAN METODOLOGI, LANGKAH KERJA, DAN LANDASAN TEORETIS
+RESEARCH QUESTION 1 (RQ1): ANALISIS WACANA DIGITAL & FRAMING INTERNASIONAL
+Untuk Draf Manuskrip Publikasi Scopus & Pelaporan kepada Prof. Ani
+================================================================================
+Penyusun / Penanggung Jawab RQ1 : Farhan Akbar (NLP Engineer & Komputasi)
+Fokus Penelitian              : Research Question 1 (RQ1)
+Topik Riset                   : Analisis Wacana Digital Isu Papua & Klaim Identitas
+                                Melanesia di Kawasan ASEAN dan Pasifik
+Target Luaran                 : Manuskrip Jurnal Bereputasi Internasional (Scopus Q1/Q2)
+================================================================================
+
+BAGIAN I: TANGGAPAN TEORETIS UNTUK RQ1
+--------------------------------------------------------------------------------
+Menanggapi bagian "THEORY AND FRAMEWORK" pada draf naskah, khususnya keterkaitan 
+antara Teori Makro (Konstruktivisme Wendt) dan Teori Mikro (Framing Entman), 
+berikut tanggapan akademik dan landasan integrasi teoretis untuk RQ1:
+
+1. Integrasi Teori Makro: Konstruktivisme Sosial (Alexander Wendt, 1999)
+   - Teori Konstruktivisme menempatkan bahwa realitas sistem internasional dan 
+     perilaku aktor tidak hanya dibentuk oleh materi, melainkan oleh gagasan, 
+     norma, dan identitas sosial ("Anarchy is what states make of it").
+   - Dalam konteks wacana digital RQ1, isu Papua diposisikan sebagai benturan diskursif 
+     antara dua norma internasional utama:
+     a. Norma Kedaulatan Teritorial & Non-Intervensi (Lockean culture of anarchy / 
+        prinsip piagam PBB dan ASEAN Way).
+     b. Norma Hak Asasi Manusia Universal (Kantian/normatif) dan Solidaritas Etnokultural 
+        Melanesia.
+   - Wacana digital di media massa dan media sosial berfungsi sebagai arena 
+     konstruksi identitas bersama (shared ideas), tempat legitimasi diplomatik Indonesia 
+     diuji di hadapan publik kawasan ASEAN dan Pasifik.
+
+2. Integrasi Teori Mikro: Framing Theory (Robert M. Entman, 1993)
+   - Entman mendefinisikan framing sebagai proses memilih aspek-aspek tertentu dari 
+     realitas (selection) dan membuatnya lebih menonjol (salience) dalam teks komunikasi.
+   - Framing menjalankan empat fungsi operasional:
+     a. Define Problems (Mendefinisikan masalah).
+     b. Diagnose Causes (Mendiagnosis faktor penyebab masalah).
+     c. Make Moral Judgements (Memberikan evaluasi etis/moral).
+     d. Suggest Remedies (Menawarkan solusi atau rekomendasi tindakan).
+   - Tanggapan Kritis & Solusi Akademis:
+     Dalam literatur Computational Social Science modern, klasifikasi kata kunci (lexical 
+     topic) saja sering dikritik reviewer karena hanya mencakup "Define Problems" (issue salience). 
+     Oleh karena itu, dalam RQ1 kita menerapkan "Operational Discursive Synthesis" 
+     (Sintesis Diskursif Operasional), yaitu memadukan Thematic Frame dengan 
+     Target-Specific Diplomatic Stance (Mohammad et al., 2016).
+     Melalui perpaduan ini:
+     - Thematic Frame mendefinisikan masalah (Problem Definition).
+     - Diplomatic Stance menginferensikan atribusi kausal (Causal Diagnosis) dan 
+       penilaian moral (Moral Judgement) terhadap target kedaulatan RI.
+     - Interseksi Frame x Stance secara operasional menghasilkan arah solusi (Suggest Remedies).
+     Dengan pendekatan ini, operasionalisasi Teori Entman dalam pipeline komputasional 
+     memiliki legitimasi teoretis yang sangat kokoh dan defensif di hadapan reviewer.
+
+
+================================================================================
+BAGIAN II: ISIAN MATRIKS GAP RISET (RESEARCH GAPS) KHUSUS SISI RQ1
+(Dapat langsung disalin untuk melengkapi kolom "Kita" pada Tabel Draf Hal. 2)
+--------------------------------------------------------------------------------
+
+1. Methodological Gap
+   - Kondisi Studi Terdahulu:
+     Mayoritas riset terdahulu mengenai isu Papua mengandalkan analisis teks kualitatif 
+     manual atau analisis pembingkaian kuantitatif sederhana yang terbatas pada ukuran 
+     sampel kecil (kurang dari 200 artikel) dan terfokus pada platform tunggal.
+   - Kontribusi Riset Kita (Isian Kolom "Kita"):
+     Menerapkan pendekatan komputasional modern berbasis Triangulasi Multi-Platform 
+     (Media Berita Resmi, Komentar YouTube, dan Platform X) dengan skala korpus 
+     terstratifikasi (N = 1.571 hingga 3.000+ data). Memadukan Deep Learning Transformer 
+     (Twitter-RoBERTa) untuk Target-Specific Stance Detection dengan Deductive 
+     Codebook-Guided Framing (Entman, 1993), serta dilengkapi protokol validasi 
+     reliabilitas manusia-AI (Cohen's Kappa).
+
+2. Variable Gap
+   - Kondisi Studi Terdahulu:
+     Framing media umumnya diperlakukan secara terisolasi tanpa menghubungkan dimensi 
+     kategori isu dengan orientasi sikap diplomatik terukur terhadap otoritas negara, 
+     sehingga gagal membedakan sentimen emosi generik dari posisi politik (stance).
+   - Kontribusi Riset Kita (Isian Kolom "Kita"):
+     Mengoperasionalisasikan dua variabel komputasional terpadu: (1) Thematic Frame 
+     (5 dimensi isu: HAM, Identitas Melanesia, Kedaulatan, Pembangunan/Keamanan, 
+     dan Diplomasi Bilateral) dan (2) Target-Specific Diplomatic Stance yang berakar 
+     pada target eksplisit ("Kedaulatan dan Diplomasi Indonesia di Papua"), serta 
+     menghubungkan luaran ini sebagai variabel stimulus untuk mengukur persepsi 
+     publik (RQ2) dan efektivitas diplomasi (RQ3).
+
+3. Empirical Gap
+   - Kondisi Studi Terdahulu:
+     Efek informasi dan narasi digital selama ini disimpulkan secara subjektif dari teks 
+     berita tanpa memetakan disparitas wacana antar-poros geopolitik (ASEAN vs Pasifik 
+     vs Barat) dan tanpa menghubungkannya dengan respons publik riil di lapangan.
+   - Kontribusi Riset Kita (Isian Kolom "Kita"):
+     Menyajikan bukti empiris terukur mengenai fragmentasi wacana digital lintas empat poros 
+     geopolitik (Blok ASEAN, Pasifik/Melanesia, Anglosphere Barat, dan Multilateral/PBB). 
+     Data empiris wacana ASEAN ini kemudian dijadikan stimulus objektif dalam pengujian 
+     persepsi panel attentive public di Malaysia dan Singapura pada RQ2.
+
+
+================================================================================
+BAGIAN III: SUMBER DATA DAN TEKNIS PENGUMPULAN DATA (RQ1)
+--------------------------------------------------------------------------------
+1. Sumber Data (Triangulasi Multi-Platform)
+   Untuk menghindari bias algoritma platform tunggal, pengumpulan data dilakukan 
+   melalui triangulasi tiga pilar ekosistem digital. Korpus data yang telah dikumpulkan 
+   dan dianotasi pada tahap awal (pilot corpus baseline) berjumlah N = 1.571 unit wacana, 
+   dan saat ini sedang dalam proses ekspansi penarikan data terstratifikasi menuju target 
+   korpus akhir yang representatif sebesar N ≈ 3.000 hingga 5.000 unit data:
+   a. Media Berita Resmi Daring (Tahap awal N = 312 artikel):
+      - Merepresentasikan Institutional Agenda-Setting (kawat berita resmi, pandangan elit 
+        diplomat, dan hukum internasional).
+      - Sumber: Portal berita arus utama Malaysia (The Star, Astro Awani, New Straits Times), 
+        Singapura (CNA, The Straits Times), Pasifik (RNZ Pacific, Fiji Times, Vanuatu Daily Post), 
+        dan Global (Reuters, ABC News, Al Jazeera).
+   b. Komentar Berita YouTube (Tahap awal N = 884 komentar):
+      - Merepresentasikan Deliberative Public Sphere (respons dialektis dan debat publik 
+        terdidik/attentive public atas tayangan berita isu Papua).
+      - Diambil melalui YouTube Data API v3 dari kanal berita regional terverifikasi.
+   c. Platform X / Twitter (Tahap awal N = 375 tuitan):
+      - Merepresentasikan Transnational Activism & Elite Discourse (kampanye tagar, 
+        pernyataan aktivis diaspora, jurnalis independen, dan advokasi multilateral).
+
+2. Poros Geopolitik & Bahasa Korpus
+   - Stratifikasi Wilayah:
+     1) Blok ASEAN (Malaysia dan Singapura) - fokus komparasi utama.
+     2) Blok Pasifik & Melanesia (Vanuatu, Fiji, Papua Nugini, Solomon Islands, Kaledonia Baru).
+     3) Blok Barat / Anglosphere (Australia, Inggris, Amerika Serikat).
+     4) Blok Multilateral / Global (PBB, kawat berita internasional).
+   - Seleksi Bahasa Strategis:
+     Korpus mencakup Bahasa Inggris (lingua franca diplomasi), Bahasa Melayu (wacana 
+     publik Malaysia), dan Bahasa Prancis (representasi aktor Melanesia Kaledonia Baru / FLNKS).
+
+
+================================================================================
+BAGIAN IV: LANGKAH KERJA & METODOLOGI KOMPUTASIONAL RQ1
+(Dapat langsung disalin ke Bab Metode: "METODE PER RQ -> 1. Research Question 1")
+--------------------------------------------------------------------------------
+Pelaksanaan metodologi komputasional untuk RQ1 dirancang ke dalam 5 tahapan kerja 
+terstandarisasi end-to-end:
+
+TAHAP 1: AKUISISI DATA & PENYARINGAN KORPUS (DATA ACQUISITION & SANITATION)
+1. Crawling Data Berbasis Kueri Boolean Terkurasi:
+   - Pengumpulan data menggunakan kata kunci spesifik kombinatif untuk mengeliminasi 
+     noise (misalnya: "West Papua" AND ("Melanesian" OR "Human Rights" OR "Sovereignty" 
+     OR "ASEAN" OR "MSG")).
+   - Menerapkan filter negasi entitas untuk menyaring data irelevan (misal: mengecualikan 
+     tim rugby Papua New Guinea Kumuls, flora/fauna, dan spam bot promosi).
+2. Sanitasi & Pembersihan Teks:
+   - Pembersihan noise digital melalui Regex (penghapusan URL, user mentions, tagar berlebih, 
+     emotikon bising, dan karakter khusus).
+   - Penerapan Stopwords Domain Spesifik: Menghilangkan kata leksikal umum dan artefak 
+     berita (misal: "min ago", "reuters", "conf", "appd") tanpa menghilangkan istilah kunci 
+     hubungan internasional.
+
+TAHAP 2: NORMALISASI BAHASA & PREPROCESSING STRUKTURAL
+1. Translate-Test Pipeline (Lingua Franca Normalization):
+   - Menerapkan Neural Machine Translation (NMT) untuk menerjemahkan teks berbahasa 
+     Melayu dan Prancis ke dalam Bahasa Inggris baku.
+   - Pendekatan ini dipilih guna menghindari penurunan kapasitas representasi semantik 
+     (curse of multilinguality) pada model multilingual dan menjamin keseragaman ruang 
+     vektor leksikon pada tahap analisis framing.
+2. Inverted Pyramid Lead Parsing (Khusus Artikel Berita Panjang):
+   - Mengikuti kaidah jurnalistik internasional (Pöttker, 2003), analisis stance artikel berita 
+     difokuskan pada Headline dan Paragraf Pembuka (250 kata pertama) yang memuat inti fakta 
+     dan sudut pandang editorial, sekaligus mematuhi batasan input token Transformer (512 token) 
+     tanpa truncation bias.
+
+TAHAP 3: DUAL-TRACK NLP INFERENCE (PEMODELAN INTI KOMPUTASI)
+1. Track A: Target-Specific Diplomatic Stance Detection
+   - Menggunakan model Transformer mutakhir: Cardiff NLP Twitter-RoBERTa-base 
+     (Barbieri et al., 2020) yang telah diadaptasi untuk teks sosial-politik.
+   - Menetapkan Target Eksplisit Baku: "Kedaulatan & Posisi Diplomatik Indonesia di Papua".
+   - Domain-Specific Calibration: Mengatasi civility bias jurnalisme formal (di mana kawat 
+     berita netral secara emosional namun secara substansi menekan kedaulatan negara).
+   - Klasifikasi 3 Kategori Sikap:
+     a. Positive / Supportive: Mendukung integritas NKRI, pembangunan, atau otonomi khusus.
+     b. Critical / Oppositional: Menyoroti pelanggaran HAM, pendudukan ilegal, atau desakan 
+        referendum PBB.
+     c. Neutral / Factual: Pelaporan kawat berita faktual berimbang tanpa atribusi moral.
+2. Track B: Deductive Codebook-Guided Thematic Framing
+   - Berlandaskan kerangka deduktif Entman (1993) dan Semetko & Valkenburg (2000), wacana 
+     dikelompokkan ke dalam 5 Bingkai Tematik Baku:
+     * F1: HAM & Pelanggaran Kemanusiaan (Kekerasan militer, tahanan politik, desakan akses PBB).
+     * F2: Identitas Melanesia & Rasial (Kekerabatan budaya Melanesia, keanggotaan MSG, rasisme).
+     * F3: Kedaulatan & Dekolonisasi (Status legal Pepera 1969, hak penentuan nasib sendiri).
+     * F4: Pembangunan & Stabilitas Keamanan (Infrastruktur, eksploitasi SDA Freeport, sandera OPM).
+     * F5: Diplomasi Bilateral & Regional (Prinsip ASEAN Non-Interference, hubungan diplomatik RI-MY-SG).
+
+TAHAP 4: OPERATIONAL DISCURSIVE SYNTHESIS & ANALISIS GEOPOLITIK
+1. Sintesis Matriks Silang (Stance x Thematic Framing):
+   - Memetakan bagaimana setiap bingkai tematik dimaknai oleh sikap diskursif.
+   - Contoh Sintesis: Bingkai F1 (HAM) berpasangan dengan Stance Kritis menghasilkan 
+     rekomendasi tindakan (Treatment) berupa desakan investigasi Komisioner HAM PBB. 
+     Sebaliknya, Bingkai F4 (Pembangunan) berpasangan dengan Stance Positif menghasilkan 
+     justifikasi kedaulatan melalui pemerataan ekonomi sipil.
+2. Explainability (Evidence Span Extraction):
+   - Model mengekstrak frasa kunci bukti (evidence spans) dari teks asli sebagai transparansi 
+     keputusan klasifikasi AI (Explainable NLP).
+3. Analisis Komparasi Lintas Poros:
+   - Mengomparasikan proporsi sebaran framing dan sentimen antara media ASEAN (Malaysia & 
+     Singapura) dengan media Pasifik dan Barat untuk menguji kepatuhan terhadap norma 
+     ASEAN Non-Interference.
+
+TAHAP 5: PROTOKOL VALIDASI ILMIAH STANDAR SCOPUS Q1/Q2
+1. Penyusunan Sampel Uji Emas (Gold Standard Sub-Sample):
+   - Penarikan sampel acak terstratifikasi sebanyak N = 100 - 150 data yang mencakup seluruh 
+     platform dan kategori framing.
+2. Anotasi Ganda Independen (Human-in-the-Loop):
+   - Dilakukan pelabelan ganda secara independen antara model AI dan pakar manusia (peneliti) 
+     berdasarkan buku kode pedoman (Codebook).
+3. Pengujian Metrik Reliabilitas:
+   - Menghitung koefisien kesepakatan antar-anotator menggunakan Cohen's Kappa (Cohen, 1960) 
+     dengan target keterandalan substansial (kappa >= 0.75).
+   - Menghitung metrik performa klasifikasi standar: Precision, Recall, dan Macro F1-score 
+     untuk dilaporkan secara transparan pada Bab Metodologi naskah jurnal.
+
+
+================================================================================
+BAGIAN V: FORMAT LUARAN (DELIVERABLES) & INTEGRASI DENGAN RQ2 & RQ3
+--------------------------------------------------------------------------------
+1. Master Dataset Terpadu (master_triangulation_asean_papua.csv)
+   Memuat unit data teranotasi lengkap (tahap awal N = 1.571 data) dengan 14 atribut transparan:
+   - Identitas & Metadata: item_id, platform, post_id, created_at, source_entity, country_bloc.
+   - Teks: original_text, raw_language, english_text.
+   - Pemodelan NLP: stance_target, diplomatic_stance, stance_confidence, stance_evidence_span, 
+     thematic_frame, framing_evidence_span, operational_synthesis.
+
+2. Temuan Kunci Empiris Tahap Awal (Pilot Baseline):
+   (Catatan: Hasil statistik deskriptif berikut dihitung dari korpus tahap awal N = 1.571 dan 
+   akan terus dimutakhirkan seiring ekspansi penarikan data terstratifikasi menuju N ≈ 3.000–5.000):
+   - Distribusi Sikap Diplomatik Total:
+     * Netral (Faktual/Deskriptif): 48.19%
+     * Kritis (Menekan/Menentang Posisi RI): 41.37%
+     * Positif (Mendukung Posisi/Kedaulatan RI): 10.44%
+   - Karakteristik Khusus Wacana Media ASEAN (Malaysia & Singapura):
+     * Media Singapura (CNA, Straits Times) dan Malaysia (The Star, Bernama) menunjukkan 
+       tingkat pemberitaan netral-faktual dan positif mencapai 68.6% - 70.2%.
+     * Fakta ini membuktikan bahwa pers arus utama ASEAN sangat konsisten menghormati 
+       prinsip ASEAN Non-Interference terhadap urusan domestik kedaulatan Indonesia.
+     * Sebaliknya, wacana kritis didominasi oleh media Pasifik (RNZ Pacific, Radio New Zealand) 
+       dan kawat media Barat melalui bingkai pelanggaran HAM dan solidaritas Melanesia.
+
+3. Keterkaitan Langsung dengan Rekan Tim:
+   - Untuk Tim Sosiologi (RQ2):
+     Hasil kuantitatif 5 kategori narasi dominan dan 493 wacana spesifik kawasan ASEAN 
+     digunakan sebagai materi stimulus kuesioner eksperimental kepada 100 responden panel 
+     attentive public di Malaysia dan Singapura.
+   - Untuk Tim Hubungan Internasional (RQ3):
+     Perbandingan disparitas sentimen antara blok ASEAN versus blok Pasifik dijadikan bukti 
+     empiris untuk mengukur sejauh mana diplomasi publik dan diplomasi ekonomi Indonesia 
+     efektif dalam mengukuhkan klaim politik dan identitas Melanesia di sub-kawasan Asia Tenggara.
+
+
+================================================================================
+BAGIAN VI: DAFTAR SITASI & REFERENSI AKADEMIS LENGKAP (APA 7th EDITION)
+(Dapat langsung disalin ke Bab Referensi Manuskrip)
+--------------------------------------------------------------------------------
+Ammon, U. (2001). The dominance of English as a language of diplomacy and international 
+    relations. In The Dominance of English as a Language of Science (pp. 57-78). De Gruyter 
+    Mouton.
+
+Barberá, P., Casas, A., Nagler, J., Egan, P. J., Bonneau, R., Jost, J. T., & Tucker, J. A. (2021). 
+    Automated text classification of news articles: A practical guide. Political Analysis, 
+    29(1), 19-42. https://doi.org/10.1017/pan.2020.8
+
+Barbier, G., Feng, Z., Gundecha, P., & Liu, H. (2012). Provenance data in social media: 
+    Cross-platform triangulation. In Social Computing, Behavioral-Cultural Modeling and 
+    Prediction (pp. 178-186). Springer, Berlin, Heidelberg.
+
+Barbieri, F., Camacho-Collados, J., Espinosa-Anke, L., & Neves, L. (2020). TweetEval: Unified 
+    benchmark and comparative evaluation for tweet classification. In Findings of the 
+    Association for Computational Linguistics: EMNLP 2020 (pp. 1644-1650).
+
+Castells, M. (2015). Networks of Outrage and Hope: Social Movements in the Internet Age 
+    (2nd ed.). Polity Press.
+
+Cohen, J. (1960). A coefficient of agreement for nominal scales. Educational and Psychological 
+    Measurement, 20(1), 37-46. https://doi.org/10.1177/001316446002000104
+
+Conneau, A., Khandelwal, K., Goyal, N., Chaudhary, V., Wenzek, G., Guzmán, F., Grave, E., 
+    Ott, M., Zettlemoyer, L., & Stoyanov, V. (2020). Unsupervised cross-lingual representation 
+    learning at scale. In Proceedings of the 58th Annual Meeting of the Association for 
+    Computational Linguistics (pp. 8440-8451).
+
+Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. Journal of 
+    Communication, 43(4), 51-58. https://doi.org/10.1111/j.1460-2466.1993.tb01304.x
+
+Halpern, D., & Gibbs, J. (2013). Social media as a tool for online deliberation: A hyperpersonal 
+    perspective. Journal of Computer-Mediated Communication, 18(4), 459-474.
+
+Jungherr, A. (2015). Analyzing Political Communication with Twitter: A Process-Oriented 
+    Approach. Springer International Publishing.
+
+Küçük, D., & Can, F. (2020). Stance detection: A survey. ACM Computing Surveys, 53(1), 1-37. 
+    https://doi.org/10.1145/3369026
+
+Landis, J. R., & Koch, G. G. (1977). The measurement of observer agreement for categorical 
+    data. Biometrics, 33(1), 159-174.
+
+Lawson, S. (2013). Melanesia: The history and politics of an idea. The Journal of Pacific History, 
+    48(1), 1-22. https://doi.org/10.1080/00223344.2012.760839
+
+Maclellan, N. (2015). The Melanesian Spearhead Group and regional diplomacy: Kanaky and 
+    the Pacific. The Journal of Pacific History, 50(4), 441-455.
+
+Matthes, J., & Kohring, M. (2008). The content analysis of media frames: Toward improving 
+    reliability and validity. Journal of Communication, 58(2), 258-279.
+
+McCombs, M. E., & Shaw, D. L. (1972). The agenda-setting function of mass media. Public 
+    Opinion Quarterly, 36(2), 176-187.
+
+Mohammad, S. M., Kiritchenko, S., Sobhani, P., Zhu, X., & Salameh, M. (2016). SemEval-2016 
+    Task 6: Detecting stance in tweets. In Proceedings of the 10th International Workshop on 
+    Semantic Evaluation (SemEval-2016) (pp. 31-41). Association for Computational Linguistics.
+
+Pöttker, H. (2003). News and its communicative quality: The inverted pyramid—When and why 
+    did it appear?. Journalism Studies, 4(4), 501-511. https://doi.org/10.1080/1461670032000136596
+
+Semetko, H. A., & Valkenburg, P. M. (2000). Framing European politics: A content analysis of 
+    press and television news. Journal of Communication, 50(2), 93-109.
+
+Wendt, A. (1999). Social Theory of International Politics. Cambridge University Press.
+================================================================================
+AKHIR DOKUMEN PENJELASAN RQ1
+================================================================================

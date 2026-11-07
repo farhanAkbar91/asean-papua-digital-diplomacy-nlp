@@ -1,6 +1,13 @@
 # ASEAN-Papua Digital Diplomacy NLP Pipeline
 ### Multi-Platform Computational Social Science & Data Triangulation Architecture
 
+> ## ⚠️ STATUS PENELITIAN (WAJIB DIBACA — revisi integritas 2026-11-07)
+> 1. **Dataset di repositori ini adalah korpus PILOTE (N = 1.571) yang BELUM divalidasi manusia.** Tidak ada Cohen's Kappa, Precision, Recall, atau F1 yang pernah dihitung. Jangan melaporkan metrik reliabilitas apa pun dari data ini.
+> 2. **Label otoritatif = prediksi mentah model** (`sentiment_model`). Lapisan "context-aware adjustment" berbasis kata-kunci kini dilaporkan sebagai kolom eksperimen TERPISAH (`stance_rule_adjusted` + bukti kata-kunci) dan TIDAK boleh dipakai untuk temuan utama sampai tervalidasi.
+> 3. **Korpus faktual berkomposisi Bahasa Inggris + Indonesia (en/id)** — BUKAN tiga bahasa (Inggris/Melayu/Prancis) seperti yang pernah diklaim. Model sentimen bersifat monolingual-Inggris sesuai model card resmi.
+> 4. **Pipeline otoritatif yang diperbaiki**: `src/` + `tests/` — `src/build_master_repaired.py` (menghasilkan `data/processed/master_triangulation_repaired.csv` + manifest), `src/run_inference.py` (inferensi Colab, tanpa fallback senyap), `tests/` (42 tes otomatis). Dokumen metodologi aktual + batasan: [`docs/METHODOLOGY_REPAIRED.md`](docs/METHODOLOGY_REPAIRED.md). Log perubahan: [`docs/RECOVERY_LOG.md`](docs/RECOVERY_LOG.md). Manifest restrukturisasi: [`docs/RESTRUCTURING_MANIFEST.md`](docs/RESTRUCTURING_MANIFEST.md).
+> 5. Distribusi statistik di bawah (bagian "Ringkasan Temuan Awal") adalah angka historis pra-reparasi yang **sebagian di antaranya telah terbukti merupakan artefak** (kategori residual dipetakan ke bingkai "Diplomasi"; blok geopolitik X berbasis substring "un"/"uk"). Gunakan angka dari `data/processed/` untuk analisis apa pun ke depan.
+
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c?logo=pytorch)](https://pytorch.org/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Transformers-ffcc00?logo=huggingface)](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest)
@@ -62,7 +69,8 @@ Riset ini mengadopsi pendekatan **triangulasi multi-platform** untuk mengatasi b
 1. **Model Transformer**: Menggunakan Pretrained Model `cardiffnlp/twitter-roberta-base-sentiment-latest` via Hugging Face Transformers & PyTorch.
 2. **Inverted Pyramid Lead Processing**: Menganalisis judul + *lead paragraph* (250 kata pertama) untuk inferensi sentimen artikel berita panjang, dan teks utuh untuk anotasi framing.
 3. **Penajaman Kontekstual Hubungan Internasional**: Rule-based adjustment yang menyelaraskan prediksi semantik umum dengan dinamika diplomasi kedaulatan vs isu pelanggaran HAM.
-4. **Operasionalisasi Entman Framing (5 Dimensi)**:
+4. **Operasionalisasi Bingkai Tematik (5 kategori leksikon + residual "Other/No-Frame")**:
+   *(Revisi 2026-11-07: ini adalah klasifikasi topik leksikal word-boundary — bukan pengukuran penuh 4 fungsi framing Entman. Unit tanpa kecocokan leksikon dilaporkan sebagai "Other/No-Frame", tidak lagi dipetakan ke bingkai "Diplomasi". Bukti kata-kunci tiap klasifikasi disimpan di kolom `framing_evidence`.)*
    * **HAM & Pelanggaran Kemanusiaan**: Desakan akses PBB, investigasi independen, perlindungan sipil.
    * **Identitas Melanesia & Solidaritas Pasifik**: Kekerabatan ras, forum MSG (*Melanesian Spearhead Group*), ikatan budaya Pasifik.
    * **Kedaulatan & Penentuan Nasib Sendiri**: Tuntutan referendum, dekolonisasi, status Pepera 1969 vs integritas teritorial NKRI.
@@ -72,19 +80,18 @@ Riset ini mengadopsi pendekatan **triangulasi multi-platform** untuk mengatasi b
 ---
 
 ## 📊 Ringkasan Temuan Awal Komputasional
+> ⚠️ **Angka di bawah ini adalah hasil historis pra-reparasi dan TIDAK VALID untuk publikasi**: (a) label "teranotasi" adalah keluaran model + lapisan aturan kata-kunci (bukan anotasi manusia); (b) label bingkai "Diplomasi & Hubungan Internasional" (569 data) termasuk 508 unit yang faktualnya TANPA kecocokan leksikon (residual); (c) blok geopolitik X saat itu ditentukan oleh substring teks (mis. "un" di dalam kata apa pun). Angka yang dapat dipertanggungjawabkan hanya dari `data/processed/master_triangulation_repaired.csv`.
 
-* **Distribusi Sentimen Teranotasi**:
+* **Distribusi Label Historis (model + aturan; PRA-reparasi, tidak divalidasi)**:
   * **Netral (Faktual/Diskusi Umum)**: `757 data` (**48.19%**)
   * **Negatif (Kritis terhadap Posisi RI)**: `650 data` (**41.37%**)
   * **Positif (Mendukung Kedaulatan/Pembangunan RI)**: `164 data` (**10.44%**)
-* **Distribusi Blok Geopolitik Kawasan**:
+* **Distribusi Blok Geopolitik Historis (pra-reparasi; lihat catatan di atas)**:
   * **Mitra Global**: `750 data` (**47.74%**)
   * **Blok ASEAN (Singapura & Malaysia)**: `493 data` (**31.38%**)
   * **Blok Pasifik & Melanesia**: `287 data` (**18.27%**)
   * **Wacana Regional Non-Spesifik**: `41 data` (**2.61%**)
-* **Temuan Kunci Sikap Pers ASEAN (RQ2)**:
-  * Media arus utama Singapura (*CNA, The Straits Times*) dan Malaysia (*The Star, Astro AWANI*) menunjukkan tingkat pemberitaan netral-faktual dan positif mencapai **~69%**, mencerminkan kepatuhan kuat terhadap prinsip *ASEAN Non-Interference*.
-  * Kritik terhadap posisi RI terkonsentrasi di media Pasifik (*RNZ Pacific, ABC News Australia*) dan *Al Jazeera English*.
+* **Catatan atas "Temuan Pers ASEAN"**: angka ~69% netral+positif media SG/MY diperoleh dari label pra-reparasi yang 25% di antaranya diproduksi aturan kata-kunci (termasuk Astro AWANI dengan n=1). Klaim "mencerminkan kepatuhan kuat terhadap ASEAN Way" TIDAK dapat dipertahankan dari data ini dan harus dihapus/direvisi pada manuskrip sampai validasi manusia dilakukan.
 
 ---
 
@@ -94,30 +101,43 @@ Proyek ini disusun secara berurutan dan transparan untuk mendokumentasikan setia
 
 ```text
 asean-papua-digital-diplomacy-nlp/
-├── 📁 0_data/                      <-- Korpus data mentah X, YouTube, dan Berita Online
-├── 📁 1_scraping/                  <-- Modul eksperimen scraping X (Twikit Session-Based)
-├── 📁 2_sentiment_analysis/        <-- Baseline model NLP iterasi 1
-├── 📁 3_hasil1_x/                  <-- Output sampel uji coba lokal iterasi 1
-├── 📁 4_hasil2_x/                  <-- Evaluasi komputasional hasil scraping X awal
-├── 📁 5_sentiment_analysis_v2/     <-- Pipeline NLP V2 (Context-Aware Adjustment)
-├── 📁 6_hasil3_x/                  <-- Output iterasi 2 data X
-├── 📁 7_hasil4_x/                  <-- Hasil final data X (375 data bersih - Opsi 1 Geoclustering)
-├── 📁 8_multiplatform_scraping/    <-- Arsitektur scraper YouTube (30 Registry Video Berita)
-├── 📁 9_sentiment_analysis_yt/     <-- Pipeline NLP khusus komentar berita YouTube
-├── 📁 10_hasil5_yt/                <-- Hasil final analisis komentar YouTube (884 data bersih)
-├── 📁 11_media_berita_scraping/    <-- Crawler portal media berita (Google News RSS & Decoder)
-├── 📁 12_sentiment_analysis_news/  <-- Pipeline NLP teks berita (Inverted Pyramid Lead Processing)
-├── 📁 13_hasil_news/               <-- Hasil final analisis media berita online (312 artikel)
-└── 📁 14_laporan_dan_master_dataset/ <-- FOLDER UTAMA SERAH-TERIMA DOKUMEN:
-    ├── master_triangulation_asean_papua.csv    (Master dataset terpadu 1.571 data)
-    ├── Laporan_Teknis_RQ1_Data_NLP_Papua_ASEAN.docx (Laporan teknis format Word)
-    ├── Laporan_Teknis_RQ1_Data_NLP_Papua_ASEAN.pdf  (Laporan teknis format PDF)
-    └── README.md
+├── README.md                      <-- Ringkasan proyek + status integritas (BACA DULU)
+├── LICENSE                        <-- MIT
+├── requirements.txt               <-- Dependensi pipeline aktif (pinned, status verifikasi jujur)
+├── data/
+│   ├── raw/                       <-- Data mentah X, YouTube, Berita (TIDAK diubah)
+│   └── processed/                 <-- OUTPUT pipeline aktif: master_triangulation_repaired.csv + build_manifest.json
+├── src/                           <-- Pipeline otoritatif hasil reparasi
+│   ├── nlp_core.py
+│   ├── build_master_repaired.py
+│   └── run_inference.py
+├── tests/                         <-- 42 tes otomatis (unit + integrasi)
+├── notebooks/                     <-- Notebook Colab historis (pra-reparasi, bukan pipeline aktif)
+├── docs/
+│   ├── METHODOLOGY_REPAIRED.md    <-- METODOLOGI AKTUAL + batasan (sumber kebenaran)
+│   ├── RECOVERY_LOG.md            <-- Log perubahan reparasi & restrukturisasi
+│   ├── RESTRUCTURING_MANIFEST.md  <-- Manifest pemindahan/arsip file
+│   ├── methodology_history/       <-- Dokumen perencanaan historis (berbanner status)
+│   └── manuscripts/               <-- DRAFT FIX.pdf, MABA SCOPUS.pdf, Laporan Teknis
+└── archive/
+    ├── legacy_pipelines/          <-- 1_..14_ folder eksperimen historis (utuh, untuk provenance)
+    ├── pre_repair_docs/           <-- Snapshot dokumen sebelum revisi integritas
+    └── data-sampah_quarantine/    <-- Folder "sampah" lama (di-quarantine, tidak dipublikasikan)
 ```
 
 ---
 
 ## 🚀 Cara Menjalankan Pipeline (Reproduction Guide)
+> **Pipeline OTORITATIF (repaired):**
+> ```bash
+> pip install -r requirements.txt
+> python src/build_master_repaired.py           # membangun master + manifest (tanpa GPU)
+> python -m unittest discover -s tests          # 42 tes otomatis
+> # inferensi transformer (butuh Colab/torch+transformers):
+> python src/run_inference.py --platform x
+> python src/build_master_repaired.py           # gabungkan label inferensi baru
+> ```
+> Folder iterasi historis kini berada di `archive/legacy_pipelines/` — dipertahankan untuk provenance, TIDAK untuk dipakai analisis ke depan.
 
 Seluruh modul komputasional dirancang kompatibel untuk dijalankan pada mesin lokal maupun **Google Colab (CPU/GPU)**:
 
@@ -129,7 +149,7 @@ cd asean-papua-digital-diplomacy-nlp
 
 ### 2. Instalasi Dependensi
 ```bash
-pip install -r 14_laporan_dan_master_dataset/../12_sentiment_analysis_news/requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 3. Menjalankan Pipeline NLP

@@ -1,0 +1,21 @@
+# Repaired pipeline dependencies (src/, tests/).
+#
+# Verification status (honest, per environment):
+#  - The builder/tests (src/build_master_repaired.py, tests/)
+#    were executed and verified with: Python 3.14.2, pandas 3.0.1, numpy 2.4.2,
+#    langdetect 1.0.9 (installed 2026-11-07). torch was present but UNUSED by
+#    the builder/tests.
+#  - The inference step (src/run_inference.py) could NOT be executed in
+#    the recovery environment (no transformers wheel for Python 3.14). The
+#    transformers pin below follows the officially supported stable release
+#    line for the cardiffnlp model; it must be smoke-tested on first Colab run.
+#
+# Recommended Colab/local environment for inference: Python 3.10-3.12.
+
+pandas>=2.2,<4
+numpy>=1.26,<3
+langdetect==1.0.9
+
+# --- inference environment only (not needed for builder/tests) ---
+transformers==4.44.2
+torch>=2.0,<3
